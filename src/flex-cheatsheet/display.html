@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>display</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="universal.css">
+</head>
+<style>
+.container {
+    border: 2px solid green;
+    margin: 5px;
+}
+.display-flex {
+    display: flex;
+    border: 2px solid green;
+    margin: 5px;
+}
+.display-inline-flex {
+    display: inline-flex;
+    border: 2px solid green;
+    margin: 5px;
+}
+.div-item {
+    border: 2px solid red; 
+    margin: 5px;
+}
+
+</style>
+<body>
+    <a href="./index.html"><h2>Index</h2></a>
+    <h1>display</h1>
+    <h2>Without CSS</h2>
+        <p class="square-1">
+            .container {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;    border: 2px solid green;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;    margin: 5px;<br>
+            }<br>
+            .div-item {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;    border: 2px solid red; <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;    margin: 5px;<br>
+            } <br> <br>
+            &lt;div class="display-flex" or class="display-inline-flex"&gt;<br>
+            &lt;div class="div-item"&gt;This is some text&lt;/div&gt;<br>
+            &lt;div class="div-item"&gt;This is some text&lt;/div&gt;<br>
+            &lt;div class="div-item"&gt;This is some text&lt;/div&gt;<br>
+            &lt;div class="div-item"&gt;This is some text&lt;/div&gt;<br>
+            &lt;/div&gt; <br><br>
+            &lt;div class="display-flex" or class="display-inline-flex"&gt;<br>
+            &lt;div class="div-item"&gt;This is some text&lt;/div&gt;<br>
+            &lt;div class="div-item"&gt;This is some text&lt;/div&gt;<br>
+            &lt;div class="div-item"&gt;This is some text&lt;/div&gt;<br>
+            &lt;div class="div-item"&gt;This is some text&lt;/div&gt;<br>
+            &lt;/div&gt;
+        </p>
+        <div class="container">
+            <div class="div-item">This is some text</div>
+            <div class="div-item">This is some text</div>
+            <div class="div-item">This is some text</div>
+            <div class="div-item">This is some text</div>
+        </div>
+        <div class="container">
+            <div class="div-item">This is some text</div>
+            <div class="div-item">This is some text</div>
+            <div class="div-item">This is some text</div>
+            <div class="div-item">This is some text</div>
+        </div>
+    <h2>flex</h2>
+        <p class="square-1">
+            Borders and margins are for debbuging only <br><br>
+            .display-flex { <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;    display: flex; <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;    border: 2px solid green; <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;    margin: 5px;<br>
+            }
+        </p>
+        <div>This is some text</div>
+        <div class="display-flex">
+            <div class="div-item">This is some text</div>
+            <div class="div-item">This is some text</div>
+            <div class="div-item">This is some text</div>
+            <div class="div-item">This is some text</div>
+        </div>
+        <div class="display-flex">
+            <div class="div-item">This is some text</div>
+            <div class="div-item">This is some text</div>
+            <div class="div-item">This is some text</div>
+            <div class="div-item">This is some text</div>
+        </div>
+    <h2>inline-flex</h2>
+    <p class="square-1">
+        Borders and margins are for debbuging only <br><br>
+            .display-flex { <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;    display: inline-flex; <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;    border: 2px solid green; <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;    margin: 5px;<br>
+            } 
+    </p>
+    <div>This is some text</div>
+    <div class="display-inline-flex">
+        <div class="div-item">This is some text</div>
+        <div class="div-item">This is some text</div>
+        <div class="div-item">This is some text</div>
+        <div class="div-item">This is some text</div>
+    </div>
+    <div class="display-inline-flex">
+        <div class="div-item">This is some text</div>
+        <div class="div-item">This is some text</div>
+        <div class="div-item">This is some text</div>
+        <div class="div-item">This is some text</div>
+    </div>
+</body>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>flex-direction</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="universal.css">
+</head>
+<body>
+<style>
+.container {
+    border: 2px solid green;
+    margin: 5px;
+}
+.flex-container-direction-row {
+    display: flex;
+    flex-direction: row;
+    border: 2px solid green;
+    margin: 5px;
+}
+.flex-container-direction-row-reverse {
+    display: flex;
+    flex-direction: row-reverse;
+    border: 2px solid green;
+    margin: 5px;
+}
+.flex-container-direction-column {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid green;
+    margin: 5px;
+}
+.flex-container-direction-column-reverse {
+    display: flex;
+    flex-direction: column-reverse;
+    border: 2px solid green;
+    margin: 5px;
+}
+.div-item {
+    border: 2px solid red;
+    margin: 5px;
+}
+</style>
+    <a href="./index.html"><h2>Index</h2></a>
+    <h1>flex-direction</h1>
+    <h2>display: flex</h2>
+    <h3>Without CSS</h3>
+    <p class="square-1">
+        .container {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;    border: 2px solid green;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;    margin: 5px;<br>
+                }<br>
+        .div-item {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;    border: 2px solid red; <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;    margin: 5px;<br>
+        } <br> <br>
+        &lt;div class="container"&gt; <br>
+            &lt;div class="div-item"&gt;This is the first text&lt;/div&gt; <br>
+            &lt;div class="div-item"&gt;This is the second text&lt;/div&gt; <br>
+            &lt;div class="div-item"&gt;This is the third text&lt;/div&gt; <br>
+            &lt;div class="div-item"&gt;This is the fourth text&lt;/div&gt; <br>
+        &lt;/div&gt; <br>
+        &lt;div class="container"&gt; <br>
+            &lt;div class="div-item"&gt;This is the first text&lt;/div&gt; <br>
+            &lt;div class="div-item"&gt;This is the second text&lt;/div&gt; <br>
+            &lt;div class="div-item"&gt;This is the third text&lt;/div&gt; <br>
+            &lt;div class="div-item"&gt;This is the fourth text&lt;/div&gt; <br>
+        &lt;/div&gt;
+    </p>
+        <div class="container">
+            <div class="div-item">This is the first text</div>
+            <div class="div-item">This is the second text</div>
+            <div class="div-item">This is the third text</div>
+            <div class="div-item">This is the fourth text</div>
+        </div>
+        <div class="container">
+            <div class="div-item">This is the first text</div>
+            <div class="div-item">This is the second text</div>
+            <div class="div-item">This is the third text</div>
+            <div class="div-item">This is the fourth text</div>
+        </div>
+    <h3>row</h3>
+    <p class="square-1">
+        .flex-container-direction-row { <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    display: flex; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    flex-direction: row; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    border: 2px solid green; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    margin: 5px; <br>
+        }
+    </p>
+    <div class="flex-container-direction-row">
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+    <div class="flex-container-direction-row">
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+    <h3>row-reverse</h3>
+    <p class="square-1">
+        .flex-container-direction-row-reverse { <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    display: flex; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    flex-direction: row-reverse; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    border: 2px solid green; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    margin: 5px; <br>
+        }
+    </p>
+    <div class="flex-container-direction-row-reverse">
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+    <div class="flex-container-direction-row-reverse">
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+    <h3>column</h3>
+        <p class="square-1">
+            .flex-container-direction-column { <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;    display: flex; <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;    flex-direction: column; <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;    border: 2px solid green; <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;    margin: 5px; <br>
+            }
+        </p>
+        <div class="flex-container-direction-column">
+            <div class="div-item">This is the first text</div>
+            <div class="div-item">This is the second text</div>
+            <div class="div-item">This is the third text</div>
+            <div class="div-item">This is the fourth text</div>
+        </div>
+        <div class="flex-container-direction-column">
+            <div class="div-item">This is the first text</div>
+            <div class="div-item">This is the second text</div>
+            <div class="div-item">This is the third text</div>
+            <div class="div-item">This is the fourth text</div>
+        </div>
+    <h3>column-reverse</h3>
+        <p class="square-1">
+            .flex-container-direction-column-reverse { <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;    display: flex; <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;    flex-direction: column-reverse; <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;    border: 2px solid green; <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;    margin: 5px; <br>
+            }
+        </p>
+        <div class="flex-container-direction-column-reverse">
+            <div class="div-item">This is the first text</div>
+            <div class="div-item">This is the second text</div>
+            <div class="div-item">This is the third text</div>
+            <div class="div-item">This is the fourth text</div>
+        </div>
+        <div class="flex-container-direction-column-reverse">
+            <div class="div-item">This is the first text</div>
+            <div class="div-item">This is the second text</div>
+            <div class="div-item">This is the third text</div>
+            <div class="div-item">This is the fourth text</div>
+        </div>
+<style>
+.inline-flex-container-direction-row {
+    display: inline-flex;
+    flex-direction: row;
+    border: 2px solid green;
+    margin: 5px;
+}
+.inline-flex-container-direction-row-reverse {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    border: 2px solid green;
+    margin: 5px;
+}
+.inline-flex-container-direction-column {
+    display: inline-flex;
+    flex-direction: column;
+    border: 2px solid green;
+    margin: 5px;
+}
+.inline-flex-container-direction-column-reverse {
+    display: inline-flex;
+    flex-direction: column-reverse;
+    border: 2px solid green;
+    margin: 5px;
+}
+</style>
+    <h2>flex-inline</h2>
+    <h3>row</h3>
+    <p class="square-1">
+        .inline-flex-container-direction-row { <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    display: inline-flex; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    flex-direction: row; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    border: 2px solid green; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    margin: 5px; <br>
+        }
+    </p>
+    <div class="inline-flex-container-direction-row">
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+    <div class="inline-flex-container-direction-row">
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+    <h3>row-inverse</h3>
+    <p class="square-1">
+        .inline-flex-container-direction-row-reverse { <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    display: inline-flex; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    flex-direction: row-reverse; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    border: 2px solid green; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    margin: 5px; <br>
+        }
+    </p>
+    <div class="inline-flex-container-direction-row-reverse">
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+    <div class="inline-flex-container-direction-row-reverse">
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+    <h3>column</h3>
+    <p class="square-1">
+        .inline-flex-container-direction-column { <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    display: inline-flex; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    flex-direction: column; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    border: 2px solid green; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    margin: 5px; <br>
+        }
+    </p>
+    <div class="inline-flex-container-direction-column">
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+    <div class="inline-flex-container-direction-column">
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+    <h3>column-reverse</h3>
+    <p class="square-1">
+        .inline-flex-container-direction-column-reverse { <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    display: inline-flex; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    flex-direction: column-reverse; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    border: 2px solid green; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    margin: 5px; <br>
+        }
+    </p>
+    <div class="inline-flex-container-direction-column-reverse">
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+    <div class="inline-flex-container-direction-column-reverse">
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+</body>

@@ -1,0 +1,20 @@
+:root {
+    --fundo-claro-1: #FAF3D2;/*Fundo Claro 1*/
+    --fundo-claro-2: #F2DFA6;/*Fundo Claro 2*/
+    --fundo-escuro-1: #816541;/*Fundo Escuro 1*/
+    --fundo-escuro-2: #705638;/*Fundo Escuro 2*/
+    --texto-claro-1: #F7EAC5;/*Texto Claro 1*/
+    --texto-claro-2: #98784D;/*Texto Claro 2*/
+    --texto-preto: #000000;/*Texto Preto*/
+}
+body {
+    background-color: var(--fundo-claro-1);/*Fundo Claro 1*/
+    color: var(--texto-claro-2);/*Texto Claro 2*/
+}
+.square-1 {
+    background: var(--fundo-escuro-1);
+    color: var(--texto-claro-1);
+    padding: 20px;
+    width: fit-content;
+    border-radius: 5px;
+}
