@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Layout-tests</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./universal.css">
+</head>
+<style>
+@media screen and (min-width: 600px){
+    .sidebar {
+        width: 20vw;
+        height: 100vh;
+
+        margin-left: -7px;
+        margin-top: -8px;
+        padding: 10px;
+        padding-top: 20px;
+        }
+}
+.sidebar {
+    display: flex;
+    flex-flow: column;
+
+    background-color: var(--fundo-escuro-1);
+    color: var(--texto-claro-1);
+
+    position: sticky;
+    top: 0;
+    overflow-y: scroll;
+}
+body {
+    display: inline-flex;
+}
+main {
+    padding: 10px;
+}
+</style>
+<body>
+    <div class="sidebar">
+        <div class="summary-sidebar-1">
+        <h2>Summary</h2>
+        <h3>First Half</h3>
+        <ol>
+        <li><a href="#1">First section</a></li>
+        <li><a href="#2">Second section</a></li>
+        <li><a href="#3">Third section</a></li>
+        <li><a href="#4">Fourth section</a></li>
+        <li><a href="#5">Fifth section</a></li>
+        <li><a href="#6">Sixth section</a></li>
+        </ol>
+        <h3>Second Half</h3>
+        <ol>
+        <li><a href="#7">Seventh section</a></li>
+        <li><a href="#8">Eighth section</a></li>
+        <li><a href="#9">Ninth section</a></li>
+        <li><a href="#10">Tenth section</a></li>
+        <li><a href="#11">Eleventh section</a></li>
+        <li><a href="#12">Twelfth section</a></li>
+        </ol>
+        <h3>Tests</h3>
+        <ol>
+        <li><a href="#13">Slightly Larger summary link</a></li>
+        <li><a href="#14">Another summary link</a></li>
+        <li><a href="#15">Yet another summary link</a></li>
+        <li><a href="#16">More summary links</a></li>
+        <li><a href="#17">Even more summary links</a></li>
+        </ol>
+        <h3>I don't enjoy repeating myself, but...</h3>
+        <ol>
+        <li><a href="#18">Slightly Larger summary link</a></li>
+        <li><a href="#19">Another summary link</a></li>
+        <li><a href="#20">Yet another summary link</a></li>
+        <li><a href="#21">More summary links</a></li>
+        <li><a href="#22">Even more summary links</a></li>
+        </ol>
+        </div>
+    </div>
+    <main>
+    <a href="./index.html" class="link-btn-1">Return to Index</a>
+    <h1>First Half</h1>
+    <div class="container">
+        <h2 id="1">First Section</h2>
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+    <div class="container">
+        <h2 id="2">Second Section</h2>
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+    <div class="container">
+        <h2 id="3">Third Section</h2>
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+    <div class="container">
+        <h2 id="4">Fourth Section</h2>
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+    <div class="container">
+        <h2 id="5">Fifth Section</h2>
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+    <div class="container">
+        <h2 id="6">Sixth Section</h2>
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+    <h1>Second Half</h1>
+    <div class="container">
+        <h2 id="7">Seventh Section</h2>
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+    <div class="container">
+        <h2 id="8">Eighth Section</h2>
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+    <div class="container">
+        <h2 id="9">Ninth Section</h2>
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+    <div class="container">
+        <h2 id="10">Tenth Section</h2>
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+    <div class="container">
+        <h2 id="11">Eleventh Section</h2>
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+    <div class="container">
+        <h2 id="12">Twelfth Section</h2>
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+    <h1>Tests</h1>
+    <div class="container">
+        <h2 id="13">Slightly Larger summary link</h2>
+        <div class="div-item">This is the first text</div>
+    </div>
+    <div class="container">
+        <h2 id="14">Another summary link</h2>
+        <div class="div-item">This is the first text</div>
+    </div>
+    <div class="container">
+        <h2 id="15">Yet another summary link</h2>
+        <div class="div-item">This is the first text</div>
+    </div>
+    <div class="container">
+        <h2 id="16">More summary links</h2>
+        <div class="div-item">This is the first text</div>
+    </div>
+    <div class="container">
+        <h2 id="17">Even more summary links</h2>
+        <div class="div-item">This is the first text</div>
+    </div>
+    <h1>I don't enjoy repeating myself, but...</h1>
+    <div class="container">
+        <h2 id="18">Slightly Larger summary link</h2>
+        <div class="div-item">This is the first text</div>
+    </div>
+    <div class="container">
+        <h2 id="19">Another summary link</h2>
+        <div class="div-item">This is the first text</div>
+    </div>
+    <div class="container">
+        <h2 id="20">Yet another summary link</h2>
+        <div class="div-item">This is the first text</div>
+    </div>
+    <div class="container">
+        <h2 id="21">More summary links</h2>
+        <div class="div-item">This is the first text</div>
+    </div>
+    <div class="container">
+        <h2 id="22">Even more summary links</h2>
+        <div class="div-item">This is the first text</div>
+    </div>
+    </main>
+</body>
+</html>

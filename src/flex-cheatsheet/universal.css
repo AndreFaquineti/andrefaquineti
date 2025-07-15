@@ -67,3 +67,20 @@ body {
     line-height: 25px;
     color: var(--texto-claro-1);
 }
+
+.summary-sidebar-1 {
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 100%;
+    background-color: var(--fundo-escuro-2);
+    color: var(--texto-claro-1);
+}
+.summary-sidebar-1 h2{
+    font-size: 15px;
+    margin: 0px 0px 15px 0px;
+}
+.summary-sidebar-1 a{
+    font-size: 15px;
+    line-height: 25px;
+    color: var(--texto-claro-1);
+}
