@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>flex-wrap</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./universal.css">
+</head>
+<body>
+    <a href="./index.html" class="link-btn-1">Return to Index</a>
+<style>
+.div-item {
+    border: 2px solid red;
+    margin: 5px;
+    height: fit-content;
+    padding: 5px;
+    width: 40%;
+}
+.container {
+    border: 2px solid green;
+    margin: 5px;
+    min-height: 150px;
+}
+.flex-nowrap {
+    border: 2px solid green;
+    margin: 5px;
+    min-height: 150px;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.flex-wrap {
+    border: 2px solid green;
+    margin: 5px;
+    min-height: 150px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.flex-wrap-reverse {
+    border: 2px solid green;
+    margin: 5px;
+    min-height: 150px;
+    display: flex;
+    flex-wrap: wrap-reverse;
+}
+</style>
+    <h1>flex-wrap</h1>
+    <div class="summary-1">
+    <h2>Summary</h2>
+        <ol>
+        <li><a href="#1">display: flex;</a></li> <br>
+        <li><a href="#2">without property</a></li> <br>
+        <li><a href="#3">wrap</a></li> <br>
+        <li><a href="#4">nowrap</a></li> <br>
+        <li><a href="#5">wrap-reverse</a></li> <br>
+        <hr>
+        <li><a href="#6">inline-flex</a></li> <br>
+        <li><a href="#7">wrap</a></li> <br>
+        <li><a href="#8">nowrap</a></li> <br>
+        <li><a href="#9">wrap-reverse</a></li> <br>
+        </ol>
+    </div>
+    <h2 id="1">display: flex;</h2>
+    <h3 id="2">Without Property</h3>
+    <p class="square-1-inline">
+        .div-item {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    border: 2px solid red;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    margin: 5px;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    height: fit-content;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    padding: 5px;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    width: 40%;<br>
+        }<br>
+        .container {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    border: 2px solid green;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    margin: 5px;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    min-height: 150px;<br>
+        }
+    </p>
+    <p class="square-1-inline">
+    &lt;div class="container"&gt; <br>
+        &lt;div class="div-item"&gt;This is the first text&lt;/div&gt;<br>
+        &lt;div class="div-item"&gt;This is the second text&lt;/div&gt;<br>
+        &lt;div class="div-item"&gt;This is the third text&lt;/div&gt;<br>
+        &lt;div class="div-item"&gt;This is the fourth text&lt;/div&gt;<br>
+    &lt;/div&gt;<br>
+    &lt;div class="container"&gt;<br>
+        &lt;div class="div-item"&gt;This is the first text&lt;/div&gt;<br>
+        &lt;div class="div-item"&gt;This is the second text&lt;/div&gt;<br>
+        &lt;div class="div-item"&gt;This is the third text&lt;/div&gt;<br>
+        &lt;div class="div-item"&gt;This is the fourth text&lt;/div&gt;<br>
+    &lt;/div&gt;
+    </p>
+    <div class="container">
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+    <div class="container">
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+    <h3 id="3">nowrap</h3>
+    <p class="square-1">
+        .flex-nowrap {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    border: 2px solid green;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    margin: 5px;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    display: flex;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    flex-wrap: nowrap;<br>
+        }
+    </p>
+    <div class="flex-nowrap">
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+    <div class="flex-nowrap">
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+    <h3 id="4">wrap</h3>
+    <p class="square-1">
+        .flex-wrap {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    border: 2px solid green;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    margin: 5px;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    display: flex;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    flex-wrap: wrap;<br>
+        }
+    </p>
+    <div class="flex-wrap">
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+    <div class="flex-wrap">
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+    <h3 id="5">wrap-reverse</h3>
+    <p class="square-1">
+        .flex-wrap-reverse {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    border: 2px solid green;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    margin: 5px;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    display: flex;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    flex-wrap: wrap-reverse;<br>
+        }
+    </p>
+    <div class="flex-wrap-reverse">
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+    <div class="flex-wrap-reverse">
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+<style>
+.inline-flex-nowrap {
+    border: 2px solid green;
+    margin: 5px;
+    min-height: 150px;
+    display: inline-flex;
+    flex-wrap: nowrap;
+}
+.inline-flex-wrap {
+    border: 2px solid green;
+    margin: 5px;
+    min-height: 150px;
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+.inline-flex-wrap-reverse {
+    border: 2px solid green;
+    margin: 5px;
+    min-height: 150px;
+    display: inline-flex;
+    flex-wrap: wrap-reverse;
+}
+</style>
+    <h2 id="6">inline-flex</h2>
+    <h3 id="7">nowrap</h3>
+    <p class="square-1">
+        .inline-flex-nowrap {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    border: 2px solid green;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    margin: 5px;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    display: inline-flex;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    flex-wrap: nowrap;<br>
+        }
+    </p>
+    <div class="inline-flex-nowrap">
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+    <div class="inline-flex-nowrap">
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+    <h3 id="8">wrap</h3>
+    <p class="square-1">
+        .inline-flex-wrap {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    border: 2px solid green;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    margin: 5px;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    display: inline-flex;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    flex-wrap: wrap;<br>
+        }
+    </p>
+    <div class="inline-flex-wrap">
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+    <div class="inline-flex-wrap">
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+    <h3 id="9">inline-wrap-reverse</h3>
+    <p class="square-1">
+        .flex-wrap-reverse {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    border: 2px solid green;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    margin: 5px;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    display: inline-flex;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;    flex-wrap: wrap-reverse;<br>
+        }
+    </p>
+    <div class="inline-flex-wrap-reverse">
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+    <div class="inline-flex-wrap-reverse">
+        <div class="div-item">This is the first text</div>
+        <div class="div-item">This is the second text</div>
+        <div class="div-item">This is the third text</div>
+        <div class="div-item">This is the fourth text</div>
+    </div>
+</body>
+</html>

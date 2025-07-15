@@ -10,11 +10,60 @@
 body {
     background-color: var(--fundo-claro-1);/*Fundo Claro 1*/
     color: var(--texto-claro-2);/*Texto Claro 2*/
+    font-family: sans-serif;
 }
 .square-1 {
+    padding: 20px;
+    border-radius: 5px;
+    margin: 5px;
+    min-width: 300px;;
+    width: fit-content;
     background: var(--fundo-escuro-1);
     color: var(--texto-claro-1);
+}
+.square-1-inline {
     padding: 20px;
-    width: fit-content;
     border-radius: 5px;
+    margin: 5px;
+    min-width: 300px;;
+    width: fit-content;
+    background: var(--fundo-escuro-1);
+    color: var(--texto-claro-1);
+    display: inline-flex;
+}
+.link-btn-1 {
+    width: 300px;
+    padding: 8px;
+    margin: 20px;
+    border-radius: 5px;
+    background-color: var(--fundo-escuro-1);
+    font-size: 30px;
+    color: var(--texto-claro-1);
+    display: flex;
+    justify-content: center;
+    transition: 0.5s;
+    text-decoration: none underline;
+    text-underline-offset: 4px;
+} 
+.link-btn-1:hover {
+    background-color: var(--fundo-escuro-2);
+    transition: 0.5s;
+}
+.summary-1 {
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    min-width: 300px;
+    width: fit-content;
+    background-color: var(--fundo-escuro-2);
+    color: var(--texto-claro-1);
+}
+.summary-1 h2{
+    font-size: 20px;
+    margin: 0px 0px 15px 0px;
+}
+.summary-1 a{
+    font-size: 20px;
+    line-height: 25px;
+    color: var(--texto-claro-1);
 }

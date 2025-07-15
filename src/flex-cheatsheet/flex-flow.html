@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>flex-flow</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="universal.css">
+</head>
+<style>
+div {
+    display: flex;
+    justify-self: center;
+    margin: 0;
+}
+@media screen and (max-width: 600px) {
+    div {
+    max-width: 90%;
+}
+}
+@media screen and (min-width: 600px) {
+    div {
+    max-width: 60%;
+}
+}
+.square-1 {
+    min-width: 0px;
+}
+</style>
+<body>
+    <a href="./index.html" class="link-btn-1">Return to Index</a>
+    <h1>flex-flow</h1>
+    <div>
+        <h3 id="">No way I'm doing this</h3>
+    </div>
+    <div>    
+        <p class="square-1">
+            This would take a literal eternity since flex-flow is essentialy the mix
+            between flex-direction: (row, row-reverse, column, column-reverse); and
+            flex-wrap: (nowrap, wrap, wrap-reverse) and variants for display: (flex, inline-flex).
+            That's more than 32 examples! We can conclude you can do a whole lot with flex-flow.
+        </p>
+    </div>
+    <div>  
+    <p class="square-1">
+        Since you're still here enjoy this miojo recipe I took from Undertale amino and
+        couldn't be bothered to translate to english: 
+    </p>
+    </div>
+    <div>  
+    <img src="./miojo-recipe.png" alt="miojo-recipe.png - a detailed print on amino about how to cook a miojo">
+    </div>
+</body>
+</html>
