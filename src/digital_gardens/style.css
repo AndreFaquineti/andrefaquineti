@@ -1,0 +1,102 @@
+:root {
+    --fundo-escuro-1: #649933;
+    --fundo-claro-1: #E2EDC0;
+    --fundo-claro-2: #FFF8D6;
+}
+@font-face {
+
+}
+@font-face {
+    font-family: 'Recoleta-Alt-Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: url('fonts/RecoletaAlt-Bold.ttf');
+}
+body {
+    margin: 0;
+}
+
+/*MOBILE*/
+@media screen and (max-width: 600px) {
+header .container-headbar {
+    height: 45px;
+}
+header .container-tags {
+    height: 25px;
+}
+header .icon-1 {
+    height: 35px;
+    width: 35px;
+}
+header h1 {
+    font-size: 28px;
+}
+header .container-2 {
+    width: 80%;
+}
+header .container-3 {
+    width: 20%;
+}
+}
+/**/
+/*Desktop*/
+@media screen and (min-width: 600px) {
+header .container-headbar {
+    height: 60px;
+}
+header .container-tags {
+    height: 30px;
+}
+header .container-2 {
+    width: 60%;
+}
+header .container-3 {
+    width: 40%;
+}
+header .icon-1 {
+    height: 40px;
+    width: 40px;
+}
+header h1 {
+    font-size: 40px;
+}
+}
+/**/
+header {
+    background-color: var(--fundo-claro-1);
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+header h1 {
+    margin: 0;
+    color: #723402;
+    font-family: Recoleta-Alt-Bold;
+    text-wrap: nowrap;
+}
+header .inline-flex {
+    display: inline-flex;
+    padding: 5px;
+}
+header .flex {
+    display: flex;
+    padding: 5px;
+}
+header .container-headbar {
+    background-color: var(--fundo-escuro-1);
+    margin: 0;
+}
+header .container-3 {
+    flex-direction: row-reverse;
+}
+
+main {
+    background-color: var(--fundo-claro-2);
+    margin: 0;
+}
+footer {
+    border: 2px solid green;
+}
+
+
+

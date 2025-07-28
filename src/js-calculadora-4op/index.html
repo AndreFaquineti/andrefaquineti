@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Some calculations</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+</head>
+<body>
+    <label for="number1">First Number</label>
+    <input
+    id="inputNumber1"
+    type="number"
+    class="inputNumber"> <br><br>
+
+    <label for="number2">Second Number</label>
+    <input
+    id="inputNumber2"
+    type="number"
+    class="inputNumber"> <br><br>
+
+    <label for="operation">Operation</label>
+    <select id="operationInput">
+        <option value="sum">Sum</option>
+        <option value="sub">Subtraction</option>
+        <option value="mul">Multiplication</option>
+        <option value="div">Division</option>
+    </select> <br><br>
+
+    <input
+    id="submit1"
+    type="submit"
+    class="inputSubmit"> <br><br>
+
+    <label for="operation">Result:</label>
+    <output id="output1"></output> <br><br>
+
+    <div id="outputHistory"></div>
+
+<script>
+    const inputSubmit1 = document.getElementById("submit1");
+    let number1 = Number(inputNumber1.value);
+    let number2 = Number(inputNumber2.value);
+    let operation = operationInput.value;
+    let history = "History: ";
+    function fourBasics() {
+        let number1 = Number(inputNumber1.value);
+        let number2 = Number(inputNumber2.value);
+        let operation = operationInput.value;
+        if (operation == "sum") {
+            var result = number1 + number2;
+        }
+        if (operation == "sub") {
+            var result = number1 - number2;
+        }
+        if (operation == "mul") {
+            var result = number1 * number2;
+        }
+        if (operation == "div") {
+            var result = number1 / number2;
+        }
+        history = history + result + " ";
+        document.getElementById("output1").textContent = result;
+        document.getElementById("outputHistory").textContent = history;
+    }
+    inputSubmit1.addEventListener("click", fourBasics);
+</script>
+</body>
+</html>
