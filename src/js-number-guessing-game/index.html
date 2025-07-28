@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Number guessing game</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+</head>
+<body>
+    <h1>Guess the number</h1>
+    <p>A number between 1 and 100 has been randomly selected, you have 10 guesses. I'll tell you
+    if you got it right or wrong and if your guess was too high or too low.</p>
+    <input
+    id="inputUserGuess"
+    type="number"
+    min="1"
+    max="100"
+    required>
+    
+    <input
+    id="inputSubmit"
+    type="submit">
+
+<script>
+    //Arredonda o resultado de (decimal * 100 e garante que sempre vai ser pelo menos 1)
+    const randomNumber = Math.floor(Math.random() * 100 + 1);
+    let userGuess = Number(inputUserGuess.value);
+    let winLose;
+    let guessCount = 0;
+    
+
+    function idk() {
+        let userGuess = Number(inputUserGuess.value);
+        console.log("randomNumber = ", randomNumber);
+        console.log("userGuess = ", userGuess);
+        if (userGuess == randomNumber) {
+            winLose = "win"
+        }
+        if (userGuess != randomNumber & guessCount < 10) {
+            guessCount = guessCount + 1;
+            if (userGuess > randomNumber) {
+                console.log("Too high!");
+            }
+            if (userGuess < randomNumber) {
+                console.log("Too low!");
+            }
+        }
+        if (userGuess != randomNumber & guessCount == 10) {
+            winLose = "lose"
+        }
+        console.log("winLose = ", winLose);
+        console.log("guessCount = ", guessCount);
+    }
+    inputSubmit.addEventListener("click", idk);
+</script>
+</body>
+</html>
