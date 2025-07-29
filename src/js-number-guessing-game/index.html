@@ -5,52 +5,113 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
 </head>
+<style>
+@media screen and (min-width: 600px) {
+    body {
+    margin-left: 27%;
+    margin-right: 30%;
+}
+}
+body {
+    font-size: 20px;
+}
+input {
+    max-height: 30px;
+    min-width: 100px;
+    font-size: 20px;
+}
+.inputs {
+    line-height: 50px;
+}
+</style>
 <body>
+    <h2><a href="../">Back to Index</a></h2>
     <h1>Guess the number</h1>
     <p>A number between 1 and 100 has been randomly selected, you have 10 guesses. I'll tell you
     if you got it right or wrong and if your guess was too high or too low.</p>
+    <div class="inputs">
+        <label for="inputUserGuess">Enter a guess: &nbsp;</label>
+        <input
+        id="inputUserGuess"
+        type="number"
+        min="1"
+        max="100"
+        required> &nbsp;&nbsp;&nbsp;&nbsp;
+        <input
+        id="inputSubmit"
+        type="submit"
+        value="Submit Guess">
+    </div> <br><br>
+    <div id="lastGuesses"></div> <br>
+    <div id="rightOrWrong"></div> <br>
+    <div id="highOrLow"></div> <br>
     <input
-    id="inputUserGuess"
-    type="number"
-    min="1"
-    max="100"
-    required>
-    
-    <input
-    id="inputSubmit"
-    type="submit">
+    id="inputNewGame"
+    type="submit"
+    value="Start New Game"
+    hidden>
 
 <script>
     //Arredonda o resultado de (decimal * 100 e garante que sempre vai ser pelo menos 1)
-    const randomNumber = Math.floor(Math.random() * 100 + 1);
+    let randomNumber = Math.floor(Math.random() * 100 + 1);
     let userGuess = Number(inputUserGuess.value);
     let winLose;
     let guessCount = 0;
-    
-
+    let lastestGuesses = "Previous Guesses: ";
     function idk() {
         let userGuess = Number(inputUserGuess.value);
-        console.log("randomNumber = ", randomNumber);
-        console.log("userGuess = ", userGuess);
+        lastestGuesses = lastestGuesses + userGuess + " ";
+        //Win
         if (userGuess == randomNumber) {
-            winLose = "win"
+            winLose = "You're awesome!";
+            document.getElementById("rightOrWrong").textContent = winLose;
+            document.getElementById("rightOrWrong").style.backgroundColor = "green";
+            document.getElementById("inputUserGuess").disabled = true;
+            document.getElementById("inputSubmit").disabled = true;
+            document.getElementById("inputNewGame").hidden = false;
         }
+        //Fail
         if (userGuess != randomNumber & guessCount < 10) {
             guessCount = guessCount + 1;
             if (userGuess > randomNumber) {
-                console.log("Too high!");
+                document.getElementById("rightOrWrong").textContent = "Last guess: Too high!";
             }
             if (userGuess < randomNumber) {
-                console.log("Too low!");
+                document.getElementById("rightOrWrong").textContent = "Last guess: Too low!";
             }
         }
+        // Lose
         if (userGuess != randomNumber & guessCount == 10) {
-            winLose = "lose"
+            winLose = "Game Over!."
+            document.getElementById("rightOrWrong").textContent = winLose;
+            document.getElementById("rightOrWrong").style.backgroundColor = "red";
+            document.getElementById("inputUserGuess").disabled = true;
+            document.getElementById("inputSubmit").disabled = true;
+            document.getElementById("inputNewGame").hidden = false;
+            
         }
-        console.log("winLose = ", winLose);
-        console.log("guessCount = ", guessCount);
+        //Other
+        document.getElementById("lastGuesses").textContent = lastestGuesses;
     }
     inputSubmit.addEventListener("click", idk);
+
+    function newGame() {
+        //reset vars
+        randomNumber = Math.floor(Math.random() * 100 + 1);
+        userGuess = Number(inputUserGuess.value);
+        winLose;
+        guessCount = 0;
+        lastestGuesses = "Previous Guesses: ";
+        //clear elements
+        document.getElementById("inputUserGuess").disabled = false;
+        document.getElementById("inputSubmit").disabled = false;
+        document.getElementById("inputNewGame").hidden = true;
+        document.getElementById("inputUserGuess").value = "";
+        document.getElementById("lastGuesses").textContent = lastestGuesses;
+        document.getElementById("rightOrWrong").textContent = "";
+        document.getElementById("rightOrWrong").style.backgroundColor = "";
+    }
+    inputNewGame.addEventListener("click", newGame);
 </script>
 </body>
 </html>
