@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de Fração Geratriz</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+</head>
+<style>
+.inline-flex {
+    display: inline-flex;
+}
+</style>
+<body>
+    <h2><a href="../">Pagina Inicial</a></h2>
+    <h1>Calculadora de Fração Geratriz</h1>
+    <div class="inline-flex">
+        Parte inteira
+        <input
+        id="inputParteInteira"
+        type="number"
+        >
+    </div>
+    <div class="inline-flex">
+        Pre periodo
+        <input
+        id="inputPrePeriodo"
+        type="number"
+        >
+    </div>
+    <div class="inline-flex">
+        Periodo
+        <input
+        id="inputPeriodo"
+        type="number"
+        required
+        >
+    </div>
+    <input
+    id="inputSubmit1"
+    type="submit"
+    >
+    <div id="contaMontada"></div>
+    <br>
+    <div class="inline-flex">
+        <div class="inline-flex" style="min-height: 90px; padding-top: 50%;
+         text-align: center; margin: 10px;">
+            x =
+        </div>
+        <div class="inline-flex" style="min-width: 50px; min-height: 90px;
+        flex-direction: column; text-align: center;">
+            <p id="nominador"></p>
+            <hr style="min-width: 50px;"></hr>
+            <p id="denominador"></p>
+        </div>
+    </div>
+<script>
+    let parteInteira;
+    let prePeriodo;
+    let periodo;
+    let numero;
+    let tamanhoDecimal;
+    let multiplicadorParaTirarDecimais;
+    let multiplicadorParaExcluirDizima;
+    let multiplicadorResultado;
+    let resultadoInicial;
+    let resultadoTirarDecimais;
+    let multiplicadorFinal;
+    let resultadoFinal;
+    const br = document.createElement("br");
+
+    function submit1() {
+        parteInteira = inputParteInteira.value;
+        prePeriodo = inputPrePeriodo.value;
+        periodo = inputPeriodo.value;
+        numero = parteInteira + "." + prePeriodo + periodo;
+
+        tamanhoDecimal = prePeriodo.length + periodo.length;
+
+        multiplicadorParaTirarDecimais = Math.pow(10, tamanhoDecimal);
+
+        resultadoTirarDecimais = Math.round(numero * multiplicadorParaTirarDecimais * 100) / 100 + "." + periodo;
+
+        multiplicadorParaExcluirDizima = Math.pow(10, prePeriodo.length);
+        
+        resultadoExcluirDizima = Math.round(numero * multiplicadorParaExcluirDizima * 100) / 100;
+
+        resultadoInicial = resultadoTirarDecimais - resultadoExcluirDizima;
+
+        multiplicadorFinal = multiplicadorParaTirarDecimais - multiplicadorParaExcluirDizima;
+
+        resultadoFinal = Math.round(resultadoInicial / multiplicadorFinal * 100) / 100;
+
+        document.getElementById("contaMontada").textContent =
+        "(" + multiplicadorParaTirarDecimais + "X" + " = " +
+        resultadoTirarDecimais +
+        ") - (" + multiplicadorParaExcluirDizima + "X" + " = " +
+        resultadoExcluirDizima + 
+        ") = (" + multiplicadorFinal + "X = " + resultadoInicial +
+        ") = (X = " + resultadoInicial + " / " + multiplicadorFinal + ") = " + resultadoFinal;
+
+        document.getElementById("nominador"). textContent = resultadoInicial;
+        document.getElementById("denominador"). textContent = multiplicadorFinal; 
+    }
+    inputSubmit1.addEventListener("click", submit1)
+</script>
+</body>
+</html>
