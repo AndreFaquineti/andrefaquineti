@@ -1,16 +1,10 @@
 <?php
-$uri = "mysql://avnadmin:AVNS_Eh3MstTzS3bRKma2cM9@mysql-portifolio-php-html-css.i.aivencloud.com:27320/defaultdb?ssl-mode=REQUIRED";
-
-$fields = parse_url($uri);
-
-// build the DSN including SSL settings
-$db = "mysql:";
-$db .= "host=" . $fields["host"];
-$db .= ";port=" . $fields["port"];;
-$db .= ";dbname=defaultdb";
+$db = "mysql:host=" . getenv("aiven_defaultdb_host");
+$db .= ";port=" . getenv("aiven_defaultdb_port");
+$db .= ";dbname=" . getenv("aiven_defaultdb_name");
 
 try {
-    $conn = new PDO($db, $fields["user"], $fields["pass"]);
+    $conn = new PDO($db, getenv("aiven_defaultdb_user"), getenv("aiven_defaultdb_pass"));
 
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
