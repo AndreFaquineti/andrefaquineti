@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Meadow</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div
+class="flex-container-direction-row"
+style="text-align: center; justify-content: center; flex-wrap: wrap;"
+>
+  <!--STOPWATCH-->
+  <div
+  class="flex-container-direction-column"
+  style="padding: 5px;">
+      <h1>Welcome to Meadow</h1>
+      <br>
+      <div
+      class="display"
+      id="displayWatch">00:00:00</div>
+      <div
+      class="flex-container-direction-row"
+      style="justify-content: center;">
+          <img
+          src="images/play-icon.svg"
+          class="control-button"
+          id="startButton">
+          <img
+          src="images/stop-icon.svg"
+          class="control-button"
+          id="stopButton">
+      </div>
+  </div>
+  <!--STOPWATCH-->
+  <div class="gap-1"></div>
+  <!--BULLETLIST-->
+  <div
+  class="flex-container-direction-column"
+  style="padding: 5px;">
+      <h1>This will be worked soon...</h1>
+      <br>
+      
+  </div>
+</div>
+</body>
+</html>
+<script src="timer.js">
+    fetch("conexao.php");
+</script>

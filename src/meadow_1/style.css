@@ -1,0 +1,44 @@
+body {
+    background-color: blanchedalmond;
+    color: black;
+}
+.display {
+    font-size: 70px;
+}
+.flex-container-direction-column {
+     display: flex;
+     flex-direction: column;
+     margin: 5px;
+}
+.flex-container-direction-row {
+     display: flex;
+     flex-direction: row;
+     margin: 5px;
+}
+.control-button {
+    margin: 5px;
+    font-size: 24px;
+    filter: brightness(0%);
+    width: 40px;
+    height: 40px;
+}
+.control-button:hover {
+    filter: brightness(50%);
+}
+.control-button:active {
+    filter: brightness(0%);
+}
+/*DESKTOP*/
+@media screen and (min-width: 800px) {
+.gap-1 {
+    width: 80px; height: 0;
+}
+}
+
+/*FLEXBOX DEBUGGER*
+* {
+  background: rgb(0 100 0 / 0.1) !important;
+}
+*:hover { 
+   outline:1px blue solid;
+ } 
