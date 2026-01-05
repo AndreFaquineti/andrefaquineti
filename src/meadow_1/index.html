@@ -44,8 +44,14 @@ style="text-align: center; justify-content: center; flex-wrap: wrap;"
       
   </div>
 </div>
+<div id="dbstate"></div>
 </body>
 </html>
-<script src="timer.js">
-    fetch("conexao.php");
+<script src="timer.js"></script>
+<script>
+    fetch("conexao.php")
+    .then(promise => promise.text())
+    .then(resultado =>{
+        document.getElementById("dbstate").innerHTML = resultado;
+    });
 </script>
