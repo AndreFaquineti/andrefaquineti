@@ -1,13 +1,8 @@
 <?php
     session_start();
-    require("conexao.php");
-    require("lib.php");
+    require("sistema/conexao.php");
+    require("sistema/lib.php");
 
-    /*ISSO PRECISA SER TEMPORÁRIO*/
-    $_SESSION["user_id"] = "umdoistres";
-    $_SESSION["user_email"] = "ESTOULOGADO";
-    $_SESSION["user_nickname"] = "namasto";
-    /*ISSO PRECISA SER TEMPORÁRIO*/
     not_logged();
     logged();
 

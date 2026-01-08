@@ -8,6 +8,7 @@ try {
     getenv("DB_Vittaclinic_Pass"));
 } catch (Exception $error) {
     echo "Erro: " . $error->getMessage();
+    exit();
 }
 echo $db;
 ?>

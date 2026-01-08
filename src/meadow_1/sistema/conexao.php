@@ -11,6 +11,7 @@ try {
     */
 } catch (Exception $error) {
     echo "Estamos tendo problemas. Por favor, tente novamente mais tarde.";
+    exit();
     /*
     echo "Erro: " . $error->getMessage();
     */

@@ -1,3 +1,9 @@
+<?php
+session_start();
+echo $_SESSION["user_id"] .
+$_SESSION["user_email"] .
+$_SESSION["user_nickname"];
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,9 +53,9 @@ style="text-align: center; justify-content: center; flex-wrap: wrap;"
 <div id="dbstate"></div>
 </body>
 </html>
-<script src="timer.js"></script>
+<script src="sistema/timer.js"></script>
 <script>
-    fetch("conexao.php")
+    fetch("sistema/conexao.php")
     .then(promise => promise.text())
     .then(resultado =>{
         document.getElementById("dbstate").innerHTML = resultado;
