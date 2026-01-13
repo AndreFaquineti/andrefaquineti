@@ -15,6 +15,6 @@ try {
     /*
     echo "Erro: " . $error->getMessage();
     */
-    exit();    
+    exit();
 }
 ?>

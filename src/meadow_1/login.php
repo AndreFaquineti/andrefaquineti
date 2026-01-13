@@ -29,12 +29,13 @@ Doesn't have an account yet? <a href="register.php">Register here.</a><br><br>
 <script>
 let email_field = document.getElementById("form_email");
 let pass_field = document.getElementById("form_pass");
+const submitButton = document.getElementById("submitInput");
 
 /*CONTROLE DOS CAMPOS*/
 if (pass_field == "") {
 
 }
-/*SISTEMA DE LOGIN*/
+/*SISTEMA DE LOGIN START*/
 function loginFunc() {
     let inputEmail = email_field.value;
     let inputPass = pass_field.value;
@@ -53,6 +54,13 @@ function loginFunc() {
         }
     });
 }
-const submitButton = document.getElementById("submitInput");
 submitButton.addEventListener("click", loginFunc);
+
+function keyPress() {
+    if (event.key == "Enter") {
+        loginFunc();
+    }
+}
+document.addEventListener('keydown', keyPress)
+/*SISTEMA DE LOGIN END*/
 </script>

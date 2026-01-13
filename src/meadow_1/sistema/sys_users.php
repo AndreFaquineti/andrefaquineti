@@ -4,6 +4,9 @@ include "conexao.php";
 
 $inputEmail = $_GET['email'];
 $inputPass = $_GET['password'];
+if (isset($_GET['name'])) {
+    $inputName = $_GET['name'];
+}
 $pedido = $_GET['pedido'];
 
 /*LÓGICA DE LOGIN START*/
@@ -40,6 +43,12 @@ if ($pedido == "login") {
 /*LÓGICA DE REGISTRO START*/
 if ($pedido == "registro") {
     echo "Não tem lógica de registro ainda!";
+    if ($inputEmail != "" && $inputName != "" && $inputPass != "") {
+        echo $inputEmail . $inputName . $inputPass;
+    }
 }
+/*
+Recebe os dados
+*/
 /*LÓGICA DE REGISTRO END*/
 ?>

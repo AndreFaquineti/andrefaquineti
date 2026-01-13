@@ -7,7 +7,6 @@ function not_logged() {
 }
 function logged() {
     if (isset($_SESSION["user_email"]) == true && $_SESSION["user_email"] != "") {
-        echo "Logged() hs been called";
         header("Location: home.php");
         exit();
     }

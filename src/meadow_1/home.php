@@ -1,8 +1,7 @@
 <?php
 session_start();
-echo $_SESSION["user_id"] .
-$_SESSION["user_email"] .
-$_SESSION["user_nickname"];
+include "sistema/lib.php";
+not_logged();
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,6 +12,16 @@ $_SESSION["user_nickname"];
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<!--HEADER START-->
+<div style="display: flex; justify-content: end;">
+    <a href="exit.php">
+        <img
+          src="images/logout-icon.svg"
+          class="control-button"
+          id="submitInput">
+    </a>
+</div>
+<!--HEADER END-->
 <div
 class="flex-container-direction-row"
 style="text-align: center; justify-content: center; flex-wrap: wrap;"
