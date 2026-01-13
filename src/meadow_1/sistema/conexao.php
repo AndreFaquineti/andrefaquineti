@@ -1,11 +1,11 @@
 <?php
-$db = "mysql:host=" . getenv("DB_meadow1_Host");
-$db .= ";dbname=" . getenv("DB_meadow1_Name");
+$db = "mysql:host=" . getenv("aiven_mysqlportifolio_host");
+$db .= ";dbname=" . getenv("aiven_meadowdb_name");
 
 try {
     $conexao = new PDO($db,
-    getenv("DB_meadow1_User"),
-    getenv("DB_meadow1_Pass"));
+    getenv("aiven_default_user"),
+    getenv("aiven_default_pass"));
     /*
     echo "Conexão bem sucedida!";
     */
