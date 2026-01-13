@@ -1,5 +1,6 @@
 <?php
 $db = "mysql:host=" . getenv("aiven_mysqlportifolio_host");
+$db .= ";port=" . getenv("aiven_mysqlportifolio_port");
 $db .= ";dbname=" . getenv("aiven_meadowdb_name");
 
 try {
@@ -11,9 +12,9 @@ try {
     */
 } catch (Exception $error) {
     echo "Estamos tendo problemas. Por favor, tente novamente mais tarde.";
-    exit();
     /*
     echo "Erro: " . $error->getMessage();
     */
+    exit();    
 }
 ?>
