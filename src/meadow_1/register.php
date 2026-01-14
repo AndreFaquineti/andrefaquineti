@@ -72,10 +72,21 @@ function registerFunc() {
         });
     }
 }
-submitButton.addEventListener("click", registerFunc);
+function submitButtonClicked() {
+    emailFieldController();
+    passFieldController();
+    repeatPassFieldController();
+    nameFieldController();
+    registerFunc();
+}
+submitButton.addEventListener("click", submitButtonClicked);
 
 function keyPress() {
     if (event.key == "Enter") {
+        emailFieldController();
+        passFieldController();
+        repeatPassFieldController();
+        nameFieldController();
         registerFunc();
     }
 }
