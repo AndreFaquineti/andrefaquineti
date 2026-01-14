@@ -48,7 +48,16 @@ if ($pedido == "registro") {
     }
 }
 /*
-Recebe os dados
+Usuario: envia email, senha, nome
+PHP: recebe input_email, input_senha, input_nome
+PHP: busca o input_email na base de dados
+PHP: se (isset(return_email) == true) {
+        echo: "this email is already being used";
+    }
+    se (isset(return_email) == false) {
+        enviar input_email, input_senha, input_nome para db;
+        echo: "Registered Successfully";
+    }
 */
 /*LÓGICA DE REGISTRO END*/
 ?>

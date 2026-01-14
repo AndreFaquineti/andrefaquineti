@@ -19,7 +19,11 @@ logged();
 
     <label for="input_pass">Password: </label><br>
     <input type="password" name="input_pass" id="input_pass" required>
-    <div id="pass_error"></div>
+    <div id="pass_error"></div><br>
+
+    <label for="input_pass">Repeat Password: </label><br>
+    <input type="password" name="input_pass" id="input_repeat_pass" required>
+    <div id="repeat_pass_error"></div><br>
 
     <label for="input_name">Name (How we call you): </label><br>
     <input type="text" name="input_name" id="input_name" required><br><br>
@@ -39,28 +43,34 @@ const pass_field = document.getElementById("input_pass");
 const name_field = document.getElementById("input_name");
 const pass_error = document.getElementById("pass_error");
 const submitButton = document.getElementById("submitInput");
+const repeat_pass_field = document.getElementById("input_repeat_pass");
+const repeat_pass_error = document.getElementById("repeat_pass_error");
+var passFieldAllow = new Boolean(false);
+var repeatPassFieldAllow = new Boolean(false);
 
 /*SISTEMA DE REGISTRO START*/
 function registerFunc() {
-    let inputEmail = email_field.value;
-    let inputPass = pass_field.value;
-    let inputName = name_field.value;
-    let pedido = "registro";
-    let statusRegister;
+    if (passFieldAllow == Boolean(true) && repeatPassFieldAllow == Boolean(true)) {
+        let inputEmail = email_field.value;
+        let inputPass = pass_field.value;
+        let inputName = name_field.value;
+        let pedido = "registro";
+        let statusRegister;
 
-    fetch("sistema/sys_users.php?" + "&email=" + encodeURIComponent(inputEmail)
-            + "&password=" + encodeURIComponent(inputPass)
-            + "&name=" + encodeURIComponent(inputName)
-            + "&pedido=" + encodeURIComponent(pedido)
-    )
-    .then(response => response.text())
-    .then(statusRegister => {
-        document.getElementById('resultado').innerHTML = statusRegister;
-        if (statusRegister == "Registered Successfully.") {
-            window.location.href = 'home.php';
-        }
-        document.getElementById('resultado').innerHTML = statusRegister;
-    });
+        fetch("sistema/sys_users.php?" + "&email=" + encodeURIComponent(inputEmail)
+                + "&password=" + encodeURIComponent(inputPass)
+                + "&name=" + encodeURIComponent(inputName)
+                + "&pedido=" + encodeURIComponent(pedido)
+        )
+        .then(response => response.text())
+        .then(statusRegister => {
+            document.getElementById('resultado').innerHTML = statusRegister;
+            if (statusRegister == "Registered Successfully.") {
+                window.location.href = 'home.php';
+            }
+            document.getElementById('resultado').innerHTML = statusRegister;
+        });
+    }
 }
 submitButton.addEventListener("click", registerFunc);
 
@@ -77,21 +87,51 @@ function emailFieldController() {
 
 }
 function passFieldController() {
-    let passLenght = pass_field.value.length;
-    console.log("passLenght: " + passLenght);
-    if (passLenght < 8) {
-        var errorShort = "Your password must be at least 8 characters long. ";
+    let passLength = pass_field.value.length;
+    console.log("passLength: " + passLength);
+    var arr_errors = [];
+    const specialCharacters = new RegExp(/[!@#$%&*()=-]/);
+    const numbers = new RegExp(/[0123456789]/);
+    passFieldAllow = new Boolean(false);
+    if (passLength < 8) {
+        arr_errors.splice(0, 0, "Your password must be at least 8 characters long.");
+        var passLengthAllow = new Boolean(false);
+    } else {
+        passLengthAllow = Boolean(true);
     }
-    if (passLenght >= 8) {
-        var errorShort = "";
+    if (pass_field.value.match(specialCharacters) == null) {
+        arr_errors.splice(2, 0, "Your password must be at least one of these: ! @ # $ % & * ( ) - =.");
+        var specialCharactersAllow = new Boolean(false);
+    } else {
+        specialCharactersAllow = Boolean(true);
     }
-    pass_error.innerHTML  = errorShort + "<br>" + "<br>";
+    if (pass_field.value.match(numbers) == null) {
+        arr_errors.splice(2, 0, "Your password must be at least one number from 0 to 9.");
+        var numbersAllow = new Boolean(false);
+    } else {
+        numbersAllow = Boolean(true);
+    }
+    if (passLengthAllow == Boolean(true) && specialCharactersAllow == Boolean(true) && numbersAllow == Boolean(true)) {
+        passFieldAllow = Boolean(true);
+    }
+    pass_error.innerHTML  = arr_errors.join("<br>");
+}
+function repeatPassFieldController() {
+    if (repeat_pass_field.value != pass_field.value) {
+        repeatPassFieldAllow = new Boolean(false);
+        repeat_pass_error.innerHTML = "Passwords must coincide.";
+    }
+    if (repeat_pass_field.value == pass_field.value) {
+        repeat_pass_error.innerHTML = "";
+        repeatPassFieldAllow = Boolean(true);
+    }
 }
 function nameFieldController() {
     
 }
 email_field.addEventListener("input", emailFieldController);
 pass_field.addEventListener("input", passFieldController);
+repeat_pass_field.addEventListener("input", repeatPassFieldController);
 name_field.addEventListener("input", nameFieldController);
 /*CONTROLE DE CAMPOS END*/
 </script>
