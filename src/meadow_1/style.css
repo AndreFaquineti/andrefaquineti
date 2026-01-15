@@ -28,6 +28,9 @@ body {
 .control-button:active {
     filter: brightness(0%);
 }
+.form-error {
+    color: rgb(182, 0, 0);
+}
 /*DESKTOP*/
 @media screen and (min-width: 800px) {
 .gap-1 {

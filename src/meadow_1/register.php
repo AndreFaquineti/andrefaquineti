@@ -15,18 +15,20 @@ logged();
     <h1>Registration Page</h1>
 <form>
     <label for="input_email">Email: </label><br>
-    <input type="email" name="input_email" id="input_email" required><br><br>
+    <input type="email" name="input_email" id="input_email" required>
+    <div id="email_error" class="form-error"></div><br>
 
     <label for="input_pass">Password: </label><br>
     <input type="password" name="input_pass" id="input_pass" required>
-    <div id="pass_error"></div><br>
+    <div id="pass_error" class="form-error"></div><br>
 
     <label for="input_pass">Repeat Password: </label><br>
     <input type="password" name="input_pass" id="input_repeat_pass" required>
-    <div id="repeat_pass_error"></div><br>
+    <div id="repeat_pass_error" class="form-error"></div><br>
 
     <label for="input_name">Name (How we call you): </label><br>
-    <input type="text" name="input_name" id="input_name" required><br><br>
+    <input type="text" name="input_name" id="input_name" required>
+    <div id="name_error" class="form-error"></div><br>
     
     <img
           src="images/login-icon.svg"
@@ -45,12 +47,17 @@ const pass_error = document.getElementById("pass_error");
 const submitButton = document.getElementById("submitInput");
 const repeat_pass_field = document.getElementById("input_repeat_pass");
 const repeat_pass_error = document.getElementById("repeat_pass_error");
+const email_error = document.getElementById("email_error");
+const name_error = document.getElementById("name_error");
+
 var passFieldAllow = new Boolean(false);
 var repeatPassFieldAllow = new Boolean(false);
+var emailFieldAllow = new Boolean(false);
+var nameFieldAllow = new Boolean(false);
 
 /*SISTEMA DE REGISTRO START*/
 function registerFunc() {
-    if (passFieldAllow == Boolean(true) && repeatPassFieldAllow == Boolean(true)) {
+    if (passFieldAllow == Boolean(true) && repeatPassFieldAllow == Boolean(true) && emailFieldAllow == Boolean(true) && nameFieldAllow == Boolean(true)) {
         let inputEmail = email_field.value;
         let inputPass = pass_field.value;
         let inputName = name_field.value;
@@ -95,7 +102,14 @@ document.addEventListener('keydown', keyPress)
 
 /*CONTROLE DE CAMPOS START*/
 function emailFieldController() {
-
+    if (email_field.value.match("@") == null || email_field.value.match(".") == null) {
+        emailFieldAllow = Boolean(false);
+        email_error.innerHTML = "Insert avalid email address.";
+    }
+    if (email_field.value.match("@") != null && email_field.value.match("\\.") != null) {
+        emailFieldAllow = Boolean(true);
+        email_error.innerHTML = "";
+    }
 }
 function passFieldController() {
     let passLength = pass_field.value.length;
@@ -138,7 +152,14 @@ function repeatPassFieldController() {
     }
 }
 function nameFieldController() {
-    
+    if (name_field.value != "") {
+        nameFieldAllow = Boolean(true);
+        name_error.innerHTML = "";
+    }
+    if (name_field.value == "") {
+        nameFieldAllow = Boolean(false);
+        name_error.innerHTML = "Please insert a name.";
+    }
 }
 email_field.addEventListener("input", emailFieldController);
 pass_field.addEventListener("input", passFieldController);
