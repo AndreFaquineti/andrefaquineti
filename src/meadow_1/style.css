@@ -15,12 +15,10 @@ body {
      flex-direction: row;
      margin: 5px;
 }
+/*BUTTONS START*/
 .control-button {
-    margin: 5px;
-    font-size: 24px;
+    padding: 5px;
     filter: brightness(0%);
-    width: 40px;
-    height: 40px;
 }
 .control-button:hover {
     filter: brightness(50%);
@@ -28,13 +26,68 @@ body {
 .control-button:active {
     filter: brightness(0%);
 }
+.control-button2 {
+    padding: 5px;
+    filter: brightness(0%);
+}
+.control-button2:hover {
+    filter: brightness(50%);
+}
+.control-button2:active {
+    filter: brightness(0%);
+}
 .form-error {
     color: rgb(182, 0, 0);
 }
-/*DESKTOP*/
+/*BUTTONS END*/
+#header-nameDisplay {
+    display: flex;
+}
+#header-nameDisplay p {
+    margin: 0px;
+    align-content: center;
+}
+
+/*DESKTOP START*/
 @media screen and (min-width: 800px) {
 .gap-1 {
     width: 80px; height: 0;
+}
+.control-button {
+    font-size: 36px;
+    width: 50px;
+    height: 50px;
+}
+.control-button2 {
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+}
+#header-home {
+    max-height: 50px;
+}
+#header-nameDisplay {
+    min-width: 25%;
+}
+}
+
+/*MOBILE START*/
+@media screen and (max-width: 800px) {
+.control-button {
+    font-size: 36px;
+    width: 60px;
+    height: 60px;
+}
+.control-button2 {
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+}
+#header-home {
+    max-height: 40px;
+}
+#header-nameDisplay {
+    width: 75%;
 }
 }
 
