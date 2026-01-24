@@ -5,8 +5,6 @@
 
     not_logged();
     logged();
-
-    echo $_SESSION["user_id"];
 ?>
 <!DOCTYPE html>
 <html>

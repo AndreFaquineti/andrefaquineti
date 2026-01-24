@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "conexao.php";
+require "conexao.php";
 
 $inputEmail = $_GET['email'];
 $inputPass = $_GET['password'];
@@ -17,12 +17,16 @@ if ($pedido == "login") {
     $lookup->bindParam(':email', $inputEmail);
     $lookup->execute();
     $result = $lookup->fetchAll(PDO::FETCH_ASSOC);
-
+    /*
+    $result é um array onde cada item linha contém uma linha da base de dados.
+    Assim, $arrayDados é o único item de $result.
+    $resulte por sua vez tem seus indices como os nomes das colunas retornadas da db.
+    */
     if (isset($result[0])) {
         $arrayDados = $result["0"];
     }
 
-    if (isset($arrayDados["email"]) && $arrayDados["email"] == $inputEmail) {
+    if (isset($arrayDados["email"])) {
         if (isset($arrayDados["password"])) {
             $verify = password_verify($inputPass, $arrayDados["password"]);
         }
@@ -57,7 +61,7 @@ if ($pedido == "registro") {
     }
 
     if (isset($arrayDados["email"]) && $arrayDados["email"] == $inputEmail) {
-        echo "This email is already being used!";
+        echo "This email is already in use.";
     } else {
         $sendData = $conexao->prepare("INSERT users (email, password, nickname) VALUES (:email, :password, :nickname)");
         $sendData->bindParam(':email', $inputEmail);
@@ -81,17 +85,5 @@ if ($pedido == "registro") {
         echo "Registered Successfully.";
     }
 }
-/*
-Usuario: envia email, senha, nome
-PHP: recebe input_email, input_senha, input_nome
-PHP: busca o input_email na base de dados
-PHP: se (isset(return_email) == true) {
-        echo: "this email is already being used";
-    }
-    se (isset(return_email) == false) {
-        enviar input_email, input_senha, input_nome para db;
-        echo: "Registered Successfully";
-    }
-*/
 /*LÓGICA DE REGISTRO END*/
 ?>

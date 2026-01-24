@@ -15,10 +15,16 @@ body {
      flex-direction: row;
      margin: 5px;
 }
+.card_1 {
+    border: 2px black solid;
+    padding: 20px;
+    border-radius: 10px;
+}
 /*BUTTONS START*/
 .control-button {
     padding: 5px;
     filter: brightness(0%);
+    cursor: pointer;
 }
 .control-button:hover {
     filter: brightness(50%);
@@ -29,6 +35,7 @@ body {
 .control-button2 {
     padding: 5px;
     filter: brightness(0%);
+    cursor: pointer;
 }
 .control-button2:hover {
     filter: brightness(50%);
@@ -88,6 +95,9 @@ body {
 }
 #header-nameDisplay {
     width: 75%;
+}
+.card_1 {
+    min-width: 100%;
 }
 }
 

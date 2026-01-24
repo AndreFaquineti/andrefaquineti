@@ -12,34 +12,15 @@ not_logged();
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<!--HEADER START-->
-<div id="header-home" class="flex-container-direction-row" style="display: flex; justify-content: end;">
-    <div id="header-nameDisplay">
-        <p>
-            <?php echo "Logged as: " . $_SESSION["user_nickname"] . "<br>Under " . $_SESSION["user_email"]?>
-        </p>
-    </div>
-    <a href="settings.php">
-        <img
-          src="images/settings-icon.svg"
-          class="control-button2"
-          id="submitInput">
-    </a>
-    <a href="exit.php">
-        <img
-          src="images/logout-icon.svg"
-          class="control-button2"
-          id="submitInput">
-    </a>
-</div>
-<!--HEADER END-->
+<?php include 'assets/header1.php';?>
+
 <div
 class="flex-container-direction-row"
 style="text-align: center; justify-content: center; flex-wrap: wrap;"
 >
-  <!--STOPWATCH-->
-  <div
-  class="flex-container-direction-column"
+  <!--STOPWATCH START-->
+  <div id="stopWatchCard"
+  class="card_1 flex-container-direction-column"
   style="padding: 5px;">
       <h1>Welcome to Meadow</h1>
       <br>
@@ -56,24 +37,62 @@ style="text-align: center; justify-content: center; flex-wrap: wrap;"
           <img
           src="images/stop-icon.svg"
           class="control-button"
-          id="stopButton">
+          id="stopButton"
+          style="filter: brightness(100%); cursor: default">
       </div>
   </div>
-  <!--STOPWATCH-->
+  <!--STOPWATCH END-->
   <div class="gap-1"></div>
-  <!--BULLETLIST-->
-  <div
-  class="flex-container-direction-column"
-  style="padding: 5px;">
+  <!--BULLETLIST START-->
+  <div id="statsCard"
+  class="card_1 flex-container-direction-column"
+  style="padding: 5px; justify-content: flex-end;">
+    <a href="stats.php">See all your statistics here</a>
+  </div>
+  <!--BULLETLIST END-->
+  <div class="gap-1"></div>
+  <!--BULLETLIST START-->
+  <div id="listCard"
+  class="card_1 flex-container-direction-column"
+  style="padding: 5px; max-width: 200px;">
       <h1>This will be worked soon...</h1>
       <br>
       
   </div>
+  <!--BULLETLIST END-->
+
 </div>
-<div id="dbstate"></div>
+<div id="footer"></div>
+
 </body>
 </html>
 <script>
+let pedido = "buscarUltima";
+fetch("sistema/sys_timer.php?" + "&pedido=" + encodeURIComponent(pedido))
+  .then(promise => promise.json())
+  .then(resultado =>{
+    var arraySession = resultado["ultimaSession"];
+    var ultimaSession = arraySession[0];
+
+
+    document.getElementById("footer").textContent = JSON.stringify();
+    if(ultimaSession["start_time"] != "") {
+      var text =
+      "It seens you have a session of " + ultimaSession["tag"]
+      + " started at " + ultimaSession["start_time"]
+      + " that hasn't been finished properly. Do you wish to continue it now?";
+
+      const startMessage = confirm(text);
+      if (startMessage == true) {
+        console.log("ok");
+      }  else {
+        console.log("nope")
+      }
+    }
+
+      
+  });
+
 let startTime;
 let stopTime;
 let elapsedTime;
@@ -85,13 +104,15 @@ const stopButton = document.getElementById("stopButton");
 
 startButton.addEventListener("click", startWatch);
 function startWatch() {
-  if (timerStarted != true) {
-    timerStarted = true;
+  if (timerStarted != Boolean(true)) {
+    timerStarted = Boolean(true);
     startTime = new Date();
-    console.log("start time = ", startTime);
     myTimer = setInterval(updateDisplay, 1000);
     
     startButton.style.filter = "brightness(100%)";
+    startButton.style.cursor = "default";
+    stopButton.style.filter = "";
+    stopButton.style.cursor = "pointer";
   }
   console.log("startButton Clicked!");
 }
@@ -101,10 +122,13 @@ function stopWatch() {
   totalSeconds = -1;
   updateDisplay();
   stopTime = new Date();
-  timerStarted = false;
+  timerStarted = Boolean(false);
   clearInterval(myTimer);
 
   startButton.style.filter = "";
+  startButton.style.cursor = "pointer";
+  stopButton.style.filter = "brightness(100%)";
+  stopButton.style.cursor = "default";
 }
 stopButton.addEventListener("click", stopWatch);
 
@@ -127,9 +151,8 @@ function updateDisplay() {
 }
 /*TIMER FRONTEND END*/
 
-    fetch("sistema/sys_timer.php")
-    .then(promise => promise.text())
-    .then(resultado =>{
-        document.getElementById("dbstate").innerHTML = resultado;
-    });
+const footer = document.getElementById("footer");
+
+  
+    
 </script>

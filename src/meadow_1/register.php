@@ -125,13 +125,13 @@ function passFieldController() {
         passLengthAllow = Boolean(true);
     }
     if (pass_field.value.match(specialCharacters) == null) {
-        arr_errors.splice(2, 0, "Your password must be at least one of these: ! @ # $ % & * ( ) - =.");
+        arr_errors.splice(1, 1, "Your password must be at least one of these: ! @ # $ % & * ( ) - =.");
         var specialCharactersAllow = new Boolean(false);
     } else {
         specialCharactersAllow = Boolean(true);
     }
     if (pass_field.value.match(numbers) == null) {
-        arr_errors.splice(2, 0, "Your password must be at least one number from 0 to 9.");
+        arr_errors.splice(2, 2, "Your password must be at least one number from 0 to 9.");
         var numbersAllow = new Boolean(false);
     } else {
         numbersAllow = Boolean(true);
@@ -152,13 +152,29 @@ function repeatPassFieldController() {
     }
 }
 function nameFieldController() {
+    nameFieldAllow = Boolean(false);
+
+    let nameLength = name_field.value.length;
+    let arr_name_errors = [];
+    let nameEmptyAllow = Boolean(false);
+    let nameLengthAllow = Boolean(false);
+
     if (name_field.value != "") {
-        nameFieldAllow = Boolean(true);
-        name_error.innerHTML = "";
+        nameEmptyAllow = Boolean(true);
     }
     if (name_field.value == "") {
-        nameFieldAllow = Boolean(false);
-        name_error.innerHTML = "Please insert a name.";
+        nameEmptyAllow = Boolean(false);
+        arr_name_errors.splice(0, 0, "Please insert a name.");
+    }
+    if (nameLength > 30) {
+        nameLengthAllow = Boolean(false);
+        arr_name_errors.splice(0, 0, "Your name can't be larger than 30 characters.");
+    } else {
+        nameLengthAllow = Boolean(true);
+    }
+    name_error.innerHTML  = arr_name_errors.join("<br>");
+    if (nameEmptyAllow == Boolean(true) && nameLengthAllow == Boolean(true)) {
+        nameFieldAllow = Boolean(true);
     }
 }
 email_field.addEventListener("input", emailFieldController);
