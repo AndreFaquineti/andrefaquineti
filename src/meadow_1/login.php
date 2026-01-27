@@ -1,6 +1,6 @@
 <?php
 session_start();
-require "sistema/lib.php";
+require "system/lib.php";
 logged();
 ?>
 <!DOCTYPE html>
@@ -9,7 +9,8 @@ logged();
     <meta charset="UTF-8">
     <title>Login - Meadow</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/style_buttons.css">
 </head>
 <body>
     <h1>Login Page</h1>
@@ -26,6 +27,8 @@ logged();
 Doesn't have an account yet? <a href="register.php">Register here.</a><br><br>
 <div id="resultado"></div>
 </html>
+
+<script src="js/assets.js"></script>
 <script>
 let email_field = document.getElementById("form_email");
 let pass_field = document.getElementById("form_pass");
@@ -42,7 +45,7 @@ function loginFunc() {
     let pedido = "login";
     let statusAccess;
 
-    fetch("sistema/sys_users.php?" + "&email=" + encodeURIComponent(inputEmail)
+    fetch("system/sys_users.php?" + "&email=" + encodeURIComponent(inputEmail)
             + "&password=" + encodeURIComponent(inputPass)
             + "&pedido=" + encodeURIComponent(pedido)
     )

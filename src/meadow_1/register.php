@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "sistema/lib.php";
+include "system/lib.php";
 logged();
 ?>
 <!DOCTYPE html>
@@ -9,7 +9,8 @@ logged();
     <meta charset="UTF-8">
     <title>Register - Meadow</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/style_buttons.css">
 </head>
 <body>
     <h1>Registration Page</h1>
@@ -39,6 +40,8 @@ Already have an account? <a href="login.php">Login.</a><br><br>
 <div id="resultado"></div>
 </div>
 </html>
+
+<script src="js/assets.js"></script>
 <script>
 const email_field = document.getElementById("input_email");
 const pass_field = document.getElementById("input_pass");
@@ -64,7 +67,7 @@ function registerFunc() {
         let pedido = "registro";
         let statusRegister;
 
-        fetch("sistema/sys_users.php?" + "&email=" + encodeURIComponent(inputEmail)
+        fetch("system/sys_users.php?" + "&email=" + encodeURIComponent(inputEmail)
                 + "&password=" + encodeURIComponent(inputPass)
                 + "&name=" + encodeURIComponent(inputName)
                 + "&pedido=" + encodeURIComponent(pedido)

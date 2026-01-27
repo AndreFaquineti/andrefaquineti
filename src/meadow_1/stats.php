@@ -1,6 +1,6 @@
 <?php
 session_start();
-require "sistema/lib.php";
+require "system/lib.php";
 not_logged();
 ?>
 <!DOCTYPE html>
@@ -9,7 +9,8 @@ not_logged();
     <meta charset="UTF-8">
     <title>My Statistics</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/style_buttons.css">
 </head>
 <style>
 th, td {
@@ -36,8 +37,10 @@ table {
     </table>
 </body>
 </html>
+
+<script src="js/assets.js"></script>
 <script>
-    fetch("sistema/sys_stats.php")
+    fetch("system/sys_stats.php")
     .then(promise => promise.json())
     .then(resultado =>{
         var arraySessions = resultado["arraySessions"]

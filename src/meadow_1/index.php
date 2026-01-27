@@ -1,7 +1,7 @@
 <?php
     session_start();
-    require("sistema/conexao.php");
-    require("sistema/lib.php");
+    require("system/conexao.php");
+    require("system/lib.php");
 
     not_logged();
     logged();

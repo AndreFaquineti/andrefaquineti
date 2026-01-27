@@ -6,7 +6,7 @@ $pedido = $_GET['pedido'];
 
 $buscarUltimaSessions = $conexao->prepare("SELECT * FROM sessions
 WHERE id_user=:id_user
-AND finished = false
+/*AND finished = false*/
 ORDER BY id_session DESC
 LIMIT 1");
 
