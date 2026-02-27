@@ -73,7 +73,7 @@ style="text-align: center; justify-content: center; flex-wrap: wrap;"
 </body>
 </html>
 <script>
-/*
+
 let pedido = "buscarUltima";
 fetch("sistema/sys_timer.php?" + "&pedido=" + encodeURIComponent(pedido))
   .then(promise => promise.json())
@@ -99,7 +99,7 @@ fetch("sistema/sys_timer.php?" + "&pedido=" + encodeURIComponent(pedido))
 
       
   });
-*/
+
 let startTime;
 let stopTime;
 let elapsedTime;

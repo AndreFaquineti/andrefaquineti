@@ -1,0 +1,83 @@
+body {
+    background-color: #DEDAB8;
+}
+.card1 {
+    background-color: #BA9E66;
+    border-radius: 10px;
+    padding: 10px 10px 10px;
+    color: white;
+    font-size: 20px;
+    margin: auto;
+}
+
+a:link {
+    color: white;
+}
+a:visited {
+    color: white;
+}
+
+.colFlexContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+/*DESKTOP START*/
+@media screen and (min-width: 800px) {
+.rowFlexContainer {
+    display: flex;
+    flex-direction: row;
+}
+.card1 {
+    height: 85vh;
+    width: 60vw;
+    margin-top: 3vh;
+    padding: 3vh 3vw 3vh;
+}
+.card2 {
+    height: 85vh;
+    width: 30vw;
+}
+h1 {
+    font-size: 70px;
+}
+
+img.card2 {
+    
+}
+
+}
+/*MOBILE START*/
+@media screen and (max-width: 800px) {
+.rowFlexContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.card1 {
+    height: 85vh;
+    margin-top: 3vh;
+    padding: 0px 4vw 0px;
+}
+.card2 {
+    height: 65vh;
+    width: 80vw;
+}
+h1 {
+    font-size: 70px;
+}
+
+img.card2 {
+    max-height: 40vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+}
+
+/*FLEXBOX DEBUGGER*
+* {
+  background: rgb(0 100 0 / 0.1) !important;
+}
+*:hover { 
+   outline:1px blue solid;
+ } 

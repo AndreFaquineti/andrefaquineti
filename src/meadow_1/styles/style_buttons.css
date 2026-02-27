@@ -24,6 +24,14 @@
 .form-error {
     color: rgb(182, 0, 0);
 }
+
+.modalButtonSafe {
+    background-color: rgb(213, 255, 205);
+}
+
+.modalButtonDanger {
+    background-color: rgb(255, 205, 205);
+}
 /*BUTTONS END*/
 @media screen and (min-width: 800px) {
 .control-button {

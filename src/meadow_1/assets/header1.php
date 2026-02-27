@@ -7,11 +7,20 @@
     margin: 0px;
     align-content: center;
 }
+@keyframes openSidebar {
+    0% {right: -60%;}
+    100% {right: 0;}
+}
+@keyframes closeSidebar {
+    0% {right: 0;}
+    100% {right: -60%;}
+}
 #sideBar {
     margin: 0;
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     height: 100%;
+    max-width: 60%;
     right: 0;
     top: 0;
     background-color: blanchedalmond;
@@ -19,6 +28,8 @@
     line-height: 2;
     border-left: solid rgb(252, 221, 176) 2px;
     font-size: 20px;
+    animation-name: openSidebar;
+    animation-duration: 400ms;
 }
 /*DESKTOP*/
 @media screen and (min-width: 800px) {

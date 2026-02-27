@@ -16,6 +16,17 @@ not_logged();
 
 <?php include 'assets/header1.php';?>
 
+<div id="modalContainer" class="modalBox">
+    <div id="modalContent" class="modalContent">
+        <div id="modalText"></div>
+        <div class="buttonsContainer" style="display:flex; flex-direction: row;">
+            <div class="modalButtonSafe">Continue</div>
+            <input type="date"><input type="timer">
+            <div class="modalButtonDanger">Delete</div>
+        </div>
+    </div>
+</div>
+
 <div
 id="main"
 class="flex-container-direction-row"
@@ -56,5 +67,8 @@ style="text-align: center; justify-content: center; flex-wrap: wrap;">
 <div id="debugger">Update</div>
 </body>
 </html>
+<script>
+    var id_user = <?php echo $_SESSION["user_id"];?>;
+</script>
 <script src="js/assets.js"></script>
 <script src="js/home.js"></script>

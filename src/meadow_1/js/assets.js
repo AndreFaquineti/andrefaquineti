@@ -7,12 +7,18 @@ sideBar.style.display = "none";
 
 menuIcon.addEventListener('click', expandMenu);
 function expandMenu() {
+    sideBar.style.animationName = "openSidebar";
     sideBar.style.display = ""; 
     body.style.backgroundColor = "rgba(0,0,0,0.4)"
 }
 
 exitIcon.addEventListener('click', hideMenu);
 function hideMenu() {
-    sideBar.style.display = "none";
+    sideBar.style.animationName = "closeSidebar";
+    sideBarWait = setTimeout(hidesidebar, 350);
+    function hidesidebar() {
+        sideBar.style.display = "none";
+        clearTimeout(sideBarWait);
+    }
     body.style.backgroundColor = "blanchedalmond"
 }
