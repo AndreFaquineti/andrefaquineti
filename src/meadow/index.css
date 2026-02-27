@@ -6,15 +6,8 @@ body {
     border-radius: 10px;
     padding: 10px 10px 10px;
     color: white;
-    font-size: 20px;
+    font-size: 4vh;
     margin: auto;
-}
-
-a:link {
-    color: white;
-}
-a:visited {
-    color: white;
 }
 
 .colFlexContainer {
@@ -39,11 +32,19 @@ a:visited {
     width: 30vw;
 }
 h1 {
-    font-size: 70px;
+    font-size: 15vh;
 }
 
-img.card2 {
-    
+a:link {
+    color: white;
+    font-size: 3vh;
+}
+a:visited {
+    color: white;
+    font-size: 3vh;
+}
+#image1 {
+    max-height: 80%;
 }
 
 }
@@ -55,20 +56,31 @@ img.card2 {
 }
 
 .card1 {
-    height: 85vh;
+    height: fit-content;
     margin-top: 3vh;
-    padding: 0px 4vw 0px;
+    padding: 0px 4vw 0vh;
+    font-size: 5vw;
 }
 .card2 {
-    height: 65vh;
+    height: 100%;
     width: 80vw;
 }
-h1 {
-    font-size: 70px;
+#siteName {
+    font-size: 8vw;
+    text-decoration-thickness: 1vw;
+}
+a:link {
+    color: white;
+    font-size: 4vw;
+}
+a:visited {
+    color: white;
+    font-size: 4vw;
 }
 
-img.card2 {
+#image1 {
     max-height: 40vh;
+    width: 80vw;
     margin-left: auto;
     margin-right: auto;
 }
