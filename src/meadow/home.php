@@ -8,7 +8,7 @@
 </head>
 <body>
 <div id="stopwatch" class="card1">
-    <img id="swSymbol" src="/andrefaquineti/src/meadow/images/timer-icon.svg" class="icon1">
+    <img id="swSymbol" src="images/timer-icon.svg" class="icon1">
     <div id="swDisplay">00:00:00</div>
     <div id="swTag" style="margin: 10px 0px 20px;">
         <select id="swTagSelect"><option selected disabled hidden>Tag</option></select>
@@ -17,8 +17,8 @@
         <select id="swSubtagSelect"><option selected disabled hidden>Subtag</option></select>
     </div>
     <div id="swControllers">
-        <img id="swStart" src="/andrefaquineti/src/meadow/images/play-icon.svg" class="controlButton">
-        <img id="swStop" src="/andrefaquineti/src/meadow/images/stop-icon.svg" class="controlButton">
+        <img id="swStart" src="images/play-icon.svg" class="controlButton">
+        <img id="swStop" src="images/stop-icon.svg" class="controlButton">
     </div>
 </div>
 </body>
