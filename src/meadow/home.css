@@ -1,6 +1,33 @@
 body {
     background-color: #DEDAB8;
 }
+#stopwatch {
+    padding: 15px 30px 15px 30px;
+    width: max-content;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+#swSymbol {
+    align-self: center;
+}
+#swControllers {
+    align-self: center;
+}
+#swDisplay {
+    font-size: 40px;
+}
+select {
+    width: 100%;
+    background-color: #9C7E41;
+    border: 0px;
+    padding: 5px;
+    border-radius: 10px;
+    color: white;
+}
+option {
+    color: white;
+}
 .card1 {
     background-color: #BA9E66;
     border-radius: 10px;
@@ -9,13 +36,10 @@ body {
     margin: auto;
 }
 .icon1 {
-    filter: brightness(0%);
+    filter: brightness(1000%);
     width: 55px;
     height: 55px;
-}
-.controlButton {
-    filter: brightness(0%);
-    cursor: pointer;
+    margin: 5px;
 }
 
 /*DESKTOP*/
@@ -32,3 +56,22 @@ body {
     height: 60px;
 }
 }
+
+/*BUTTONS*/
+.controlButton {
+    filter: brightness(1000%);
+    cursor: pointer;
+}
+.controlButton:hover {
+    filter: brightness(90%);
+}
+.controlButton:active {
+    filter: brightness(1000%);
+}
+/*FLEXBOX DEBUGGER*
+* {
+  background: rgb(0 100 0 / 0.1) !important;
+}
+*:hover { 
+   outline:1px blue solid;
+ } 
