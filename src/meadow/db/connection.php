@@ -4,7 +4,7 @@ $db .= ";port=" . getenv("aiven_mysqlportifolio_port");
 $db .= ";dbname=" . getenv("aiven_meadowdb_name");
 
 try {
-    $conexao = new PDO($db,
+    $connection = new PDO($db,
     getenv("aiven_default_user"),
     getenv("aiven_default_pass"));
     /*

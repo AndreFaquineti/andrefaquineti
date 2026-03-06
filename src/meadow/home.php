@@ -52,13 +52,28 @@ function startStopwatch() {
     swStop.style.cursor = "pointer";
 
     startTime = new Date();
+    swStartPhpController();
     runDisplay();
 
     swStarted = true;
 }
 swStart.addEventListener("click", startStopwatch);
+
+
+function swStartPhpController() {
+    let request = "startSw";
+    fetch("swController.php?" +
+    "&request=" + encodeURIComponent(request))
+    .then(response => response.json())
+    .then(response => {
+    let result = response["startSw"];
+    console.log(response);
+    }
+    );
+}
 /*STOPWATCH STARTFUNCTION STOP*/
 
+/*RELATIVE TO runDisplay*/
 var swTimeout;
 var swDisplayElapsedTime = 0;
 var currentTime;
@@ -94,10 +109,23 @@ function stopStopwatch() {
     swStop.style.filter = "brightness(90%)";
     swStop.style.cursor = "default";
 
+    swStopPhpController();
     clearTimeout(swTimeout);
     
-    swDisplay.textContent = "00:00:00";
+    /*swDisplay.textContent = "00:00:00";*/
     swStarted = false;
+}
+
+function swStopPhpController() {
+    let request = "stopSw";
+    fetch("swController.php?" +
+    "&request=" + encodeURIComponent(request))
+    .then(response => response.json())
+    .then(response => {
+    let result = response["stopSw"];
+    console.log(response);
+    }
+    );
 }
 swStop.addEventListener("click", stopStopwatch);
 /*STOPWATCH CONTROLLERS END*/

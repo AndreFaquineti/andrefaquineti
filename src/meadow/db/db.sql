@@ -30,14 +30,11 @@ insert into users (email, password, nickname) VALUES ('teste1@teste.com', 'teste
 insert into sessions (id_user, tag, subtag, start_time, end_time, finished, created)
 VALUES ('6', 'roubar a lua', 'lançar o foguete', CURRENT_TIMESTAMP() - INTERVAL 5400 SECOND, CURRENT_TIMESTAMP(), FALSE, true);
 
-UPDATE sessions SET end_time = CURRENT_TIMESTAMP() WHERE id_session=1;
+UPDATE sessions SET end_time = NOW() WHERE id_session=321;
 
 DROP TABLE sessions;
 SELECT * FROM sessions;
 SELECT * FROM users;
-
-SELECT TOP 3 * FROM sessions
-ORDER BY id_session DESC;
 
 SELECT * FROM sessions
 WHERE id_user=6
