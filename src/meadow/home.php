@@ -7,10 +7,17 @@
     <link rel="stylesheet" href="home.css">
 </head>
 <body>
+<div id="navbar">
+    <div id="navLogo">Meadow</div>
+    <div id="navgap" style="width: 100%"></div><!--INLINE STYLE-->
+    <img id="statistics" src="images/stats-icon.svg" class="navButton">
+    <img id="settings" src="images/settings-icon.svg" class="navButton">
+    <img id="logout" src="images/logout-icon.svg" class="navButton">
+</div>
 <div id="stopwatch" class="card1">
     <img id="swSymbol" src="images/timer-icon.svg" class="icon1">
     <div id="swDisplay">00:00:00</div>
-    <div id="swTag" style="margin: 10px 0px 20px;">
+    <div id="swTag" style="margin: 10px 0px 20px;"><!--INLINE STYLE-->
         <select id="swTagSelect"><option selected disabled hidden>Tag</option></select>
     </div>
     <div id="swSubtag">
