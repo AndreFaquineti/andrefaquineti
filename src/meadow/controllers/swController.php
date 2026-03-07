@@ -1,5 +1,5 @@
 <?php
-require "db/connection.php";
+require "connection.php";
 if (isset($_GET['request'])) {
     $request = $_GET['request'];
 }
@@ -31,7 +31,7 @@ if (isset($request) && $request == "stopSw") {
         "UPDATE sessions SET end_time = :endTime, finished=1
         WHERE id_user=6 AND finished=0"
         );
-        /*$startSession->bindParam(':id_user', $_SESSION['user_id']);*/
+        /*$stopSession->bindParam(':id_user', $_SESSION['user_id']);*/
         $stopSession->bindParam(':endTime', $endTime);
     $stopSession->execute();
 
@@ -42,8 +42,33 @@ if (isset($request) && $request == "stopSw") {
 }
 
 
-echo json_encode($response);
+if (isset($request) && $request == "getTags") {
+    $getOptions = $connection->prepare(query:
+            "SELECT DISTINCT tag FROM sessions WHERE id_user=6;"
+        );
+        /*$getOptions->bindParam(':id_user', $_SESSION['user_id']);*/
+    $getOptions->execute();
 
+    $userTags = $getOptions->fetchAll(PDO::FETCH_ASSOC);
+
+    echo json_encode(($userTags));
+}
+if (isset($request) && $request == "getSubtags") {
+    $getOptions = $connection->prepare(query:
+            "SELECT DISTINCT subtag FROM sessions WHERE id_user=6;"
+        );
+        /*$getOptions->bindParam(':id_user', $_SESSION['user_id']);*/
+    $getOptions->execute();
+
+    $userSubtags = $getOptions->fetchAll(PDO::FETCH_ASSOC);
+
+    echo json_encode(($userSubtags));
+}
+
+
+if (isset($response)) {
+    echo json_encode($response);
+}
 
 
 ?>

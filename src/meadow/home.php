@@ -1,3 +1,4 @@
+<?php require "controllers/connection.php"?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,107 +34,144 @@
 
 <script>
 /*STOPWATCH CONTROLLERS START*/
-const swDisplay = document.getElementById("swDisplay");
-const swStart = document.getElementById("swStart");
-const swStop = document.getElementById("swStop");
+    const swStart = document.getElementById("swStart");
+    const swStop = document.getElementById("swStop");
 
-var startTime;
+    var startTime;
 
 /*Initial Styles*/
-swStart.style.filter = "brightness(1000%)";
-swStart.style.cursor = "pointer";
-swStop.style.filter = "brightness(90%)";
-swStop.style.cursor = "default";
-
-/*STOPWATCH STARTFUNCTION START*/
-var swStarted = false;
-var startTime;
-function startStopwatch() {
-    if (swStarted == true) {
-        return;
-    }
-    /*STYLE BUTTON*/
-    swStart.style.filter = "brightness(90%)";
-    swStart.style.cursor = "default";
-    swStop.style.filter = "brightness(1000%)";
-    swStop.style.cursor = "pointer";
-
-    startTime = new Date();
-    swStartPhpController();
-    runDisplay();
-
-    swStarted = true;
-}
-swStart.addEventListener("click", startStopwatch);
-
-
-function swStartPhpController() {
-    let request = "startSw";
-    fetch("swController.php?" +
-    "&request=" + encodeURIComponent(request))
-    .then(response => response.json())
-    .then(response => {
-    let result = response["startSw"];
-    console.log(response);
-    }
-    );
-}
-/*STOPWATCH STARTFUNCTION STOP*/
-
-/*RELATIVE TO runDisplay*/
-var swTimeout;
-var swDisplayElapsedTime = 0;
-var currentTime;
-var swDisplaySeconds;
-var swDisplayMinutes;
-var swDisplayHours;
-var swDisplayFormattedTime;
-
-function runDisplay() {
-    currentTime = new Date();
-    swDisplayElapsedTime = currentTime - startTime;
-
-    swDisplaySeconds = Math.floor(swDisplayElapsedTime / 1000);
-    swDisplayMinutes = Math.floor(swDisplaySeconds / 60);
-    swDisplayHours = Math.floor(swDisplayMinutes / 60);
-
-    swDisplayFormattedTime = String(swDisplayHours % 60 + ":").padStart(3, "0");
-    swDisplayFormattedTime += String(swDisplayMinutes % 60 + ":").padStart(3, "0");
-    swDisplayFormattedTime += String(swDisplaySeconds % 60).padStart(2, "0");
-
-    swDisplay.textContent = swDisplayFormattedTime;
-
-    swTimeout = setTimeout(runDisplay, 1000);
-}
-    
-function stopStopwatch() {
-    if (swStarted == false) {
-        return;
-    }
-    /*STYLE BUTTON*/
     swStart.style.filter = "brightness(1000%)";
     swStart.style.cursor = "pointer";
     swStop.style.filter = "brightness(90%)";
     swStop.style.cursor = "default";
 
-    swStopPhpController();
-    clearTimeout(swTimeout);
-    
-    /*swDisplay.textContent = "00:00:00";*/
-    swStarted = false;
-}
+/*STOPWATCH STARTFUNCTION START*/
+    var swStarted = false;
+    var startTime;
+    function startStopwatch() {
+        if (swStarted == true) {
+            return;
+        }
+        /*STYLE BUTTON*/
+        swStart.style.filter = "brightness(90%)";
+        swStart.style.cursor = "default";
+        swStop.style.filter = "brightness(1000%)";
+        swStop.style.cursor = "pointer";
 
-function swStopPhpController() {
-    let request = "stopSw";
-    fetch("swController.php?" +
-    "&request=" + encodeURIComponent(request))
-    .then(response => response.json())
-    .then(response => {
-    let result = response["stopSw"];
-    console.log(response);
+        startTime = new Date();
+        swStartPhpController();
+        runDisplay();
+
+        swStarted = true;
     }
-    );
-}
-swStop.addEventListener("click", stopStopwatch);
+    swStart.addEventListener("click", startStopwatch);
+
+
+    function swStartPhpController() {
+        let request = "startSw";
+        fetch("controllers/swController.php?" +
+        "&request=" + encodeURIComponent(request))
+        .then(response => response.json())
+        .then(response => {
+        let result = response["startSw"];
+        console.log(response);
+        }
+        );
+    }
+/*STOPWATCH STARTFUNCTION STOP*/
+
+/*RELATIVE TO runDisplay*/
+    const swDisplay = document.getElementById("swDisplay"); 
+    var swTimeout;
+    var swDisplayElapsedTime = 0;
+    var currentTime;
+    var swDisplaySeconds;
+    var swDisplayMinutes;
+    var swDisplayHours;
+    var swDisplayFormattedTime;
+
+    function runDisplay() {
+        currentTime = new Date();
+        swDisplayElapsedTime = currentTime - startTime;
+
+        swDisplaySeconds = Math.floor(swDisplayElapsedTime / 1000);
+        swDisplayMinutes = Math.floor(swDisplaySeconds / 60);
+        swDisplayHours = Math.floor(swDisplayMinutes / 60);
+
+        swDisplayFormattedTime = String(swDisplayHours % 60 + ":").padStart(3, "0");
+        swDisplayFormattedTime += String(swDisplayMinutes % 60 + ":").padStart(3, "0");
+        swDisplayFormattedTime += String(swDisplaySeconds % 60).padStart(2, "0");
+
+        swDisplay.textContent = swDisplayFormattedTime;
+
+        swTimeout = setTimeout(runDisplay, 1000);
+    }
+        
+    function stopStopwatch() {
+        if (swStarted == false) {
+            return;
+        }
+        /*STYLE BUTTON*/
+        swStart.style.filter = "brightness(1000%)";
+        swStart.style.cursor = "pointer";
+        swStop.style.filter = "brightness(90%)";
+        swStop.style.cursor = "default";
+
+        swStopPhpController();
+        clearTimeout(swTimeout);
+        
+        /*swDisplay.textContent = "00:00:00";*/
+        swStarted = false;
+    }
+
+    function swStopPhpController() {
+        let request = "stopSw";
+        fetch("controllers/swController.php?" +
+        "&request=" + encodeURIComponent(request))
+        .then(response => response.json())
+        .then(response => {
+        let result = response["stopSw"];
+        console.log(response);
+        }
+        );
+    }
+    swStop.addEventListener("click", stopStopwatch);
 /*STOPWATCH CONTROLLERS END*/
+
+/*OPTIONS SELECTOR START*/
+const swTagSelect = document.getElementById("swTagSelect");
+generateSwTags();
+    function generateSwTags() {
+        let request = "getTags";
+        fetch("controllers/swController.php?" +
+        "&request=" + encodeURIComponent(request))
+        .then(response => response.json())
+        .then(response => {
+        let arrayTags = response;
+        arrayTags.forEach((element) => {
+            const option = document.createElement("option");
+            option.innerText = element["tag"];
+            swTagSelect.appendChild(option);
+            })
+        }
+        );
+    }
+const swSubtagSelect = document.getElementById("swSubtagSelect");
+generateSwSubtags();
+    function generateSwSubtags() {
+        let request = "getSubtags";
+        fetch("controllers/swController.php?" +
+        "&request=" + encodeURIComponent(request))
+        .then(response => response.json())
+        .then(response => {
+        let arraySubtags = response;
+        arraySubtags.forEach((element) => {
+            const option = document.createElement("option");
+            option.innerText = element["subtag"];
+            swSubtagSelect.appendChild(option);
+            })
+        }
+        );
+    } 
+/*OPTIONS SELECTOR END*/
 </script>
