@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "connection.php";
 if (isset($_GET['request'])) {
     $request = $_GET['request'];
@@ -10,9 +11,9 @@ if (isset($request) && $request == "startSw") {
 
     $startSession = $connection->prepare(query:
         "INSERT INTO meadowdb.sessions (id_user, start_time)
-        VALUES (6, :startTime)"
+        VALUES (:id_user, :startTime)"
         );
-        /*$startSession->bindParam(':id_user', $_SESSION['user_id']);*/
+        $startSession->bindParam(':id_user', $_SESSION['id_user']);
         /*$startSession->bindParam(':tag', $tag);*/
         /*$startSession->bindParam(':subtag', $subtag);*/
         $startSession->bindParam(':startTime', $startTime);
@@ -29,9 +30,9 @@ if (isset($request) && $request == "stopSw") {
 
     $stopSession = $connection->prepare(query:
         "UPDATE sessions SET end_time = :endTime, finished=1
-        WHERE id_user=6 AND finished=0"
+        WHERE id_user=:id_user AND finished=0"
         );
-        /*$stopSession->bindParam(':id_user', $_SESSION['user_id']);*/
+        $stopSession->bindParam(':id_user', $_SESSION['id_user']);
         $stopSession->bindParam(':endTime', $endTime);
     $stopSession->execute();
 
@@ -43,24 +44,24 @@ if (isset($request) && $request == "stopSw") {
 
 
 if (isset($request) && $request == "getTags") {
-    $getOptions = $connection->prepare(query:
-            "SELECT DISTINCT tag FROM sessions WHERE id_user=6;"
+    $getTags = $connection->prepare(query:
+            "SELECT DISTINCT tag FROM sessions WHERE id_user=:id_user;"
         );
-        /*$getOptions->bindParam(':id_user', $_SESSION['user_id']);*/
-    $getOptions->execute();
+        $getTags->bindParam(':id_user', $_SESSION['id_user']);
+    $getTags->execute();
 
-    $userTags = $getOptions->fetchAll(PDO::FETCH_ASSOC);
+    $userTags = $getTags->fetchAll(PDO::FETCH_ASSOC);
 
     echo json_encode(($userTags));
 }
 if (isset($request) && $request == "getSubtags") {
-    $getOptions = $connection->prepare(query:
-            "SELECT DISTINCT subtag FROM sessions WHERE id_user=6;"
+    $getSubtags = $connection->prepare(query:
+            "SELECT DISTINCT subtag FROM sessions WHERE id_user=:id_user;"
         );
-        /*$getOptions->bindParam(':id_user', $_SESSION['user_id']);*/
-    $getOptions->execute();
+        $getSubtags->bindParam(':id_user', $_SESSION['id_user']);
+    $getSubtags->execute();
 
-    $userSubtags = $getOptions->fetchAll(PDO::FETCH_ASSOC);
+    $userSubtags = $getSubtags->fetchAll(PDO::FETCH_ASSOC);
 
     echo json_encode(($userSubtags));
 }

@@ -1,4 +1,11 @@
-<?php require "controllers/connection.php"?>
+<?php
+session_start();
+require "controllers/connection.php";
+/*KICK UNLOGGED*/
+if (!isset($_SESSION["id_user"])) {
+    header("Location: pages/login.php");
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +20,7 @@
     <div id="navgap" style="width: 100%"></div><!--INLINE STYLE-->
     <img id="statistics" src="images/stats-icon.svg" class="navButton">
     <img id="settings" src="images/settings-icon.svg" class="navButton">
-    <img id="logout" src="images/logout-icon.svg" class="navButton">
+    <a href="controllers/exit.php"><img id="logout" src="images/logout-icon.svg" class="navButton"></a>
 </div>
 <div id="stopwatch" class="card1">
     <img id="swSymbol" src="images/timer-icon.svg" class="icon1">
@@ -65,7 +72,6 @@
         swStarted = true;
     }
     swStart.addEventListener("click", startStopwatch);
-
 
     function swStartPhpController() {
         let request = "startSw";
