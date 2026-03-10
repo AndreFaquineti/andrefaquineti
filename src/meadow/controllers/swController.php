@@ -13,7 +13,7 @@ if (isset($_GET['swTagValue'])) {
 
 if (isset($request) && $request == "startSw") {
 
-    $startTime = date('Y-m-d H:i:s', strtotime('-4 hours'));
+    $startTime = date('Y-m-d H:i:s', strtotime('-3 hours'));
 
     if (!isset($swTagValue) OR $swTagValue == "undefined") {
         $swTagValue = "Other";
