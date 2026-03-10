@@ -38,7 +38,7 @@ if (isset($request) && $request == "startSw") {
 }
 if (isset($request) && $request == "stopSw") {
 
-    $endTime = date('Y-m-d H:i:s', strtotime('-4 hours'));
+    $endTime = date('Y-m-d H:i:s', strtotime('-3 hours'));
 
     $stopSession = $connection->prepare(query:
         "UPDATE sessions SET end_time = :endTime, finished=1

@@ -74,10 +74,10 @@ generateSessionsTable();
             const tdStart = document.createElement("td");
             const tdDuration = document.createElement("td");
 
-            let durationSeconds = element["duration_seconds"]
+            let durationSeconds = element["duration_seconds"];
             tdTag.innerText = element["tag"];
             tdSubtag.innerText = element["subtag"];
-            tdStart.innerText = element["start_start"];
+            tdStart.innerText = element["start_time"];
             tdDuration.innerText = Math.floor(durationSeconds / 60);
             
             tr.appendChild(tdTag);
