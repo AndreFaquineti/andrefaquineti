@@ -10,7 +10,7 @@ if (!isset($_SESSION["id_user"])) {
 <html>
 <head>
     <title>Meadow - Home</title>
-    <meta charset="UT-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="home.css">
 </head>
@@ -20,7 +20,7 @@ if (!isset($_SESSION["id_user"])) {
     <div id="navgap" style="width: 100%"></div><!--INLINE STYLE-->
     <div id="navUser" style="padding: 5px; color: white; background-color: #9C7E41; border-radius: 10px;"></div>
     <!--navUser IS SUPPOSED TO BE TEMPORARY-->
-    <img id="statistics" src="images/stats-icon.svg" class="navButton">
+    <a href="statistics.php"><img id="statistics" src="images/stats-icon.svg" class="navButton"></a>
     <img id="settings" src="images/settings-icon.svg" class="navButton">
     <a href="controllers/exit.php"><img id="logout" src="images/logout-icon.svg" class="navButton"></a>
 </div>
@@ -140,7 +140,7 @@ if (!isset($_SESSION["id_user"])) {
         swStopPhpController();
         clearTimeout(swTimeout);
         
-        /*swDisplay.textContent = "00:00:00";*/
+        swDisplay.textContent = "00:00:00";
         swStarted = false;
     }
 
