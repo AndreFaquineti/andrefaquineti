@@ -43,7 +43,7 @@ Already have an account? <a href="login.php">Login.</a><br><br>
 </div>
 </html>
 
-<script src="js/assets.js"></script>
+<script src="assets.js"></script>
 <script>
 const email_field = document.getElementById("input_email");
 const pass_field = document.getElementById("input_pass");

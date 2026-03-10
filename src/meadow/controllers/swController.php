@@ -4,18 +4,30 @@ require "connection.php";
 if (isset($_GET['request'])) {
     $request = $_GET['request'];
 }
+if (isset($_GET['swSubtagValue'])) {
+    $swSubtagValue = $_GET['swSubtagValue'];
+}
+if (isset($_GET['swTagValue'])) {
+    $swTagValue = $_GET['swTagValue'];
+}
 
 if (isset($request) && $request == "startSw") {
 
     $startTime = date('Y-m-d H:i:s', strtotime('-4 hours'));
 
+    if (!isset($swTagValue) OR $swTagValue == "undefined") {
+        $swTagValue = "Other";
+    }
+    if (!isset($swSubtagValue ) OR $swSubtagValue == "undefined") {
+        $swSubtagValue = "Other";
+    }
     $startSession = $connection->prepare(query:
-        "INSERT INTO meadowdb.sessions (id_user, start_time)
-        VALUES (:id_user, :startTime)"
+        "INSERT INTO meadowdb.sessions (id_user, tag, subtag, start_time)
+        VALUES (:id_user, :tag, :subtag, :startTime)"
         );
         $startSession->bindParam(':id_user', $_SESSION['id_user']);
-        /*$startSession->bindParam(':tag', $tag);*/
-        /*$startSession->bindParam(':subtag', $subtag);*/
+        $startSession->bindParam(':tag', $swTagValue);
+        $startSession->bindParam(':subtag', $swSubtagValue);
         $startSession->bindParam(':startTime', $startTime);
     $startSession->execute();
 

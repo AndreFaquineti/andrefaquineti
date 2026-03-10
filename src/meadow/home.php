@@ -18,6 +18,8 @@ if (!isset($_SESSION["id_user"])) {
 <div id="navbar">
     <div id="navLogo">Meadow</div>
     <div id="navgap" style="width: 100%"></div><!--INLINE STYLE-->
+    <div id="navUser" style="padding: 5px; color: white; background-color: #9C7E41; border-radius: 10px;"></div>
+    <!--navUser IS SUPPOSED TO BE TEMPORARY-->
     <img id="statistics" src="images/stats-icon.svg" class="navButton">
     <img id="settings" src="images/settings-icon.svg" class="navButton">
     <a href="controllers/exit.php"><img id="logout" src="images/logout-icon.svg" class="navButton"></a>
@@ -25,11 +27,14 @@ if (!isset($_SESSION["id_user"])) {
 <div id="stopwatch" class="card1">
     <img id="swSymbol" src="images/timer-icon.svg" class="icon1">
     <div id="swDisplay">00:00:00</div>
-    <div id="swTag" style="margin: 10px 0px 20px;"><!--INLINE STYLE-->
+    <div id="swTag" style="margin: 10px -15px 20px 0px; display: flex; flex-direction: row;"><!--INLINE STYLE-->
         <select id="swTagSelect"><option selected disabled hidden>Tag</option></select>
+        <img id="swAddTag" src="images/add-icon.svg" class="navButton">
     </div>
-    <div id="swSubtag">
+    <div id="swSubtag" style="margin: 0px -15px 0px 0px; display: flex; flex-direction: row;"><!--INLINE STYLE-->
         <select id="swSubtagSelect"><option selected disabled hidden>Subtag</option></select>
+        <img id="swAddSubtag" src="images/add-icon.svg" class="navButton">
+
     </div>
     <div id="swControllers">
         <img id="swStart" src="images/play-icon.svg" class="controlButton">
@@ -65,6 +70,10 @@ if (!isset($_SESSION["id_user"])) {
         swStop.style.filter = "brightness(1000%)";
         swStop.style.cursor = "pointer";
 
+        /*STYLE SELECTORS*/
+        swTagSelect.setAttribute("disabled", true);
+        swSubtagSelect.setAttribute("disabled", true);
+
         startTime = new Date();
         swStartPhpController();
         runDisplay();
@@ -76,11 +85,12 @@ if (!isset($_SESSION["id_user"])) {
     function swStartPhpController() {
         let request = "startSw";
         fetch("controllers/swController.php?" +
-        "&request=" + encodeURIComponent(request))
+        "&request=" + encodeURIComponent(request) +
+        "&swTagValue=" + encodeURIComponent(swTagValue) +
+        "&swSubtagValue=" + encodeURIComponent(swSubtagValue))
         .then(response => response.json())
         .then(response => {
         let result = response["startSw"];
-        console.log(response);
         }
         );
     }
@@ -122,6 +132,10 @@ if (!isset($_SESSION["id_user"])) {
         swStart.style.cursor = "pointer";
         swStop.style.filter = "brightness(90%)";
         swStop.style.cursor = "default";
+
+        /*STYLE SELECTORS*/
+        swTagSelect.removeAttribute("disabled");
+        swSubtagSelect.removeAttribute("disabled");
 
         swStopPhpController();
         clearTimeout(swTimeout);
@@ -180,4 +194,52 @@ generateSwSubtags();
         );
     } 
 /*OPTIONS SELECTOR END*/
+
+/*Username display TEMPORARY*/
+const userNickname = "<?php echo $_SESSION["user_nickname"];?>";
+const userEmail = "<?php echo $_SESSION["user_email"];?>";
+const navUser = document.getElementById("navUser");
+navUser.textContent = userNickname + ", " + userEmail;
+
+/*get tags and subtags*/
+var swTagValue;
+function getSwTagValue() {
+    swTagValue = swTagSelect.value;
+}
+swTagSelect.addEventListener("input", getSwTagValue);
+var swSubtagValue;
+function getSwSubtagValue() {
+    swSubtagValue = swSubtagSelect.value;
+}
+swSubtagSelect.addEventListener("input", getSwSubtagValue);
+
+const swAddTag = document.getElementById("swAddTag");
+function addSwTag() {
+    let swPromptTag = prompt("Enter a Tag:");
+    if (swPromptTag != null || swPromptTag != "") {
+
+        const option = document.createElement("option");
+        option.innerText = swPromptTag;
+        option.setAttribute("selected", true);
+        swTagSelect.appendChild(option);
+
+        swTagValue = swPromptTag;
+    }
+}
+swAddTag.addEventListener("click", addSwTag);
+
+const swAddSubtag = document.getElementById("swAddSubtag");
+function addSwSubtag() {
+    let swPromptSubtag = prompt("Enter a Subtag:");
+    if (swPromptSubtag != null || swPromptSubtag != "") {
+
+        const option = document.createElement("option");
+        option.innerText = swPromptSubtag;
+        option.setAttribute("selected", true);
+        swSubtagSelect.appendChild(option);
+
+        swSubtagValue = swPromptSubtag;
+    }
+}
+swAddSubtag.addEventListener("click", addSwSubtag);
 </script>

@@ -30,7 +30,7 @@ Doesn't have an account yet? <a href="register.php">Register here.</a><br><br>
 <div id="resultado"></div>
 </html>
 
-<script src="js/assets.js"></script>
+<script src="assets.js"></script>
 <script>
 let email_field = document.getElementById("form_email");
 let pass_field = document.getElementById("form_pass");
