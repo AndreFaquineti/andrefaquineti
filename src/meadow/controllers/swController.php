@@ -31,11 +31,22 @@ if (isset($request) && $request == "startSw") {
         $startSession->bindParam(':startTime', $startTime);
     $startSession->execute();
 
+    $getCurrentSession = $connection->prepare(query:
+        "SELECT id_session FROM meadowdb.sessions WHERE id_user=:id_user AND end_time IS NULL;"
+        );
+        $getCurrentSession->bindParam(':id_user', $_SESSION['id_user']);
+    $getCurrentSession->execute();
+
+    $currentSession = $getCurrentSession->fetchAll(PDO::FETCH_ASSOC);
+    $_SESSION["currentSession"] = implode($currentSession[0]);
+
     $response = [
     "startSw" => "session started!",
-    "currentSession" => "unknown"
+    "currentSession" => implode($currentSession[0])
     ];
 }
+
+
 if (isset($request) && $request == "stopSw") {
 
     $endTime = date('Y-m-d H:i:s', strtotime('-3 hours'));
@@ -78,6 +89,19 @@ if (isset($request) && $request == "getSubtags") {
     echo json_encode(($userSubtags));
 }
 
+if (isset($request) && $request == "swAutosave") {
+
+    $endTime = date('Y-m-d H:i:s', strtotime('-3 hours'));
+
+    $swAutosave = $connection->prepare(query:
+            "UPDATE sessions SET end_time=:end_time WHERE id_session=:currentSession;"
+        );
+        $swAutosave->bindParam(':end_time', $endTime);
+        $swAutosave->bindParam(':currentSession', $_SESSION['currentSession']);
+    $swAutosave->execute();
+
+    echo "Successful";
+}
 
 if (isset($response)) {
     echo json_encode($response);

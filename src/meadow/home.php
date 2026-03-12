@@ -77,6 +77,7 @@ if (!isset($_SESSION["id_user"])) {
         startTime = new Date();
         swStartPhpController();
         runDisplay();
+        swAutosave();
 
         swStarted = true;
     }
@@ -122,7 +123,19 @@ if (!isset($_SESSION["id_user"])) {
 
         swTimeout = setTimeout(runDisplay, 1000);
     }
-        
+
+    function swAutosave() {
+        let request = "swAutosave";
+        fetch("controllers/swController.php?" +
+        "&request=" + encodeURIComponent(request))
+        .then(response => response.text())
+        .then(response => {
+        var autoSave = response;
+        autosaveTimeout = setTimeout(swAutosave, 60000);
+        }
+        );
+    }
+
     function stopStopwatch() {
         if (swStarted == false) {
             return;
