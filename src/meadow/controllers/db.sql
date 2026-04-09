@@ -49,3 +49,9 @@ ORDER BY id_session DESC
 LIMIT 1;
 
 DELETE FROM sessions WHERE finished=0;
+
+WHERE tag IN ('Programação', 'IFSP') /*shorthand for multiple OR statements*/
+
+SELECT tag, COUNT(*), SUM(duration_seconds) / 3600, AVG(duration_seconds) / 3600 FROM sessions GROUP BY tag ORDER BY tag;
+
+SELECT tag, subtag, COUNT(*), SUM(duration_seconds) / 3600, AVG(duration_seconds) / 3600 FROM sessions WHERE id_user=5 GROUP BY tag, subtag  ORDER BY tag;
